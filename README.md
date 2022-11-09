@@ -20,6 +20,7 @@ Cada Herramienta tiene su propio redame con las instruciones para ejecucion de l
 | 3 | Eliminar Post |
 | 4 | Agregar Miembro |
 | 5 | Eliminar Miembro |
+
 Hacer login en Ghost Admin es una Funcionalidad implícita.
 
 ### Listado de Escenarios:
