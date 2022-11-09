@@ -8,8 +8,8 @@ Semana 5
 
 ### Enlaces a archivos Readme:
 Cada Herramienta tiene su propio redame con las instruciones para ejecucion de las pruebas.
-- [Kraken]()
-- [Cypress]()
+- [Kraken](https://github.com/shiomar-salazar/PA_Semana5/tree/main/Kraken)
+- [Cypress](https://github.com/shiomar-salazar/PA_Semana5/tree/main/Cypress)
 
 
 ### Listado de Funcionalidades:
