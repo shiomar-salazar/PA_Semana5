@@ -1,4 +1,4 @@
-export class NewMemberPage {
+export class MemberDetailPage {
     getMemberNameInput() {
         return cy.get('input[name="name"]');
     }
@@ -13,5 +13,13 @@ export class NewMemberPage {
 
     getSaveButton() {
         return cy.get('section[class="view-actions"] > button');
+    }
+
+    getDropdownButton() {
+        return cy.get('section.view-actions > span.dropdown > button');
+    }
+
+    getDeleteButton() {
+        return cy.get('section[class="view-actions"] > span.dropdown > ul > li:last-of-type > button');
     }
 }

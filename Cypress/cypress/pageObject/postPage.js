@@ -18,4 +18,8 @@ export class PostPage {
     getConfirmPublishButtonModal() {
         return cy.get('div[class="gh-publish-cta"] > button:first-of-type');
     }
+
+    getUpdatePostButton() {
+        return cy.get('button.gh-editor-save-trigger.green');
+    }
 }

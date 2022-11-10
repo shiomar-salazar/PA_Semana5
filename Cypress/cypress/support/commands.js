@@ -26,13 +26,17 @@
 
 import { LoginPage } from "../pageObject/loginPage";
 import { PostPage } from "../pageObject/postPage";
-import { NewMemberPage } from "../pageObject/newMemberPage";
+import { MemberDetailPage } from "../pageObject/memberDeailPage";
 import { MemberPage } from "../pageObject/membersPage";
+import { PublishedPostsPage } from "../pageObject/publishedPostsPage";
 
-
+const memberPage = new MemberPage();
+const postPage = new PostPage();
+const loginPage = new LoginPage();
+const memberDetailPage = new MemberDetailPage();
+const publishedPostsPage = new PublishedPostsPage();
 
 Cypress.Commands.add("login", (email, password) => {
-    const loginPage = new LoginPage();
     loginPage.getEmailInput().type(email);
     loginPage.getPasswordInput().type(password);
     loginPage.getLoginButton().click();
@@ -40,7 +44,6 @@ Cypress.Commands.add("login", (email, password) => {
 
 
 Cypress.Commands.add("createPost", (title, content) => {
-    const postPage = new PostPage();
     postPage.getPostTitleInput().type(title);
     postPage.getPostContentInput().type(content);
     postPage.getPublishPostButton().click();
@@ -50,17 +53,27 @@ Cypress.Commands.add("createPost", (title, content) => {
 
 
 Cypress.Commands.add("createMember", (name, email, note) => {
-    const memberPage = new MemberPage();
     memberPage.getNewMemberButton().click();
-
-    const newMemberPage = new NewMemberPage();
-    newMemberPage.getMemberNameInput().type(name);
-    newMemberPage.getMemberEmailInput().type(email);
-    newMemberPage.getNoteInput().type(note);
-    newMemberPage.getSaveButton().click();
+    memberDetailPage.getMemberNameInput().type(name);
+    memberDetailPage.getMemberEmailInput().type(email);
+    memberDetailPage.getNoteInput().type(note);
+    memberDetailPage.getSaveButton().click();
 });
 
 
+Cypress.Commands.add("deleteMember", (name) => {
+    memberPage.getMemberLink(name).click();
+    memberDetailPage.getDropdownButton().click();
+    memberDetailPage.getDeleteButton().click();
+    memberPage.getConfirmDeleteButton().click();
+});
+
+Cypress.Commands.add("editPost", (title, newTitle, content) => {
+    publishedPostsPage.getAllPostTitles().contains(title).click();
+    postPage.getPostTitleInput().clear().type(newTitle);
+    postPage.getPostContentInput().clear().type(content);
+    postPage.getUpdatePostButton().click();
+});
 
 
 
