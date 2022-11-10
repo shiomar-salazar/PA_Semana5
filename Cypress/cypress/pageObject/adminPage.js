@@ -1,4 +1,8 @@
 export class AdminPage {
+    navigateToMainPage() {
+        cy.visit('http://localhost:2368/ghost/#/dashboard');
+    }
+
     getNewPostButton() {
         return cy.get('a[href="#/editor/post/"]');
     }

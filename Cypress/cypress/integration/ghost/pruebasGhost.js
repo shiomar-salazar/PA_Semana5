@@ -90,4 +90,60 @@ describe('Ghost tests', () => {
         publishedPostsPage.getAllPostTitles().contains('My first post edited 2').should('not.exist');
     });
 
+
+    it('delete member, create post and edit post', () => {
+        adminPage.navigateToMembersPage();
+        cy.wait(1000)
+        cy.deleteMember('test 2');
+        cy.wait(1000)
+
+        memberPage.getMembersList().contains('test 2').should('not.exist');
+
+        adminPage.navigateToMainPage();
+        adminPage.getNewPostButton().click();
+        cy.wait(1000)
+        cy.createPost('My second post', 'This is my second post');
+
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        cy.wait(1000)
+
+        cy.editPost('My second post', 'My second post edited', 'This is my second post edited');
+        cy.wait(500)
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        publishedPostsPage.getAllPostTitles().contains('My second post edited').should('exist');
+    });
+
+    it('create post, delete post, create post and edit post', () => {
+        adminPage.navigateToMainPage();
+        adminPage.getNewPostButton().click();
+        cy.wait(1000)
+        cy.createPost('My third post', 'This is my third post');
+
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        cy.wait(1000)
+
+        cy.deletePost('My third post');
+        cy.wait(1000)
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        publishedPostsPage.getAllPostTitles().contains('My third post').should('not.exist');
+
+        adminPage.navigateToMainPage();
+        adminPage.getNewPostButton().click();
+        cy.wait(1000)
+        cy.createPost('My fourth post', 'This is my fourth post');
+
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        cy.wait(1000)
+
+        cy.editPost('My fourth post', 'My fourth post edited', 'This is my fourth post edited');
+        cy.wait(500)
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        publishedPostsPage.getAllPostTitles().contains('My fourth post edited').should('exist');
+    });
 });
