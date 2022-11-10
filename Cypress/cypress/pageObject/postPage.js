@@ -22,4 +22,13 @@ export class PostPage {
     getUpdatePostButton() {
         return cy.get('button.gh-editor-save-trigger.green');
     }
+
+    getSideMenuButton() {
+        return cy.get('button[title="Settings"]');
+    }
+
+    getSideMenuDeleteButton() {
+        return cy.get('button.settings-menu-delete-button');
+    }
+
 }

@@ -11,10 +11,6 @@ export class MemberPage {
         return cy.get('table[class="gh-list"] > tbody > tr').contains(name);
     }
 
-    getConfirmDeleteButton() {
-        return cy.get('div.modal-footer > button:last-of-type');
-    }
-
     getMembersList() {
         return cy.get('table[class="gh-list"] > tbody > tr');
     }

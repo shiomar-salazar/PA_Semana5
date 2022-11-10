@@ -14,7 +14,7 @@ describe('Ghost tests', () => {
         cy.login(Cypress.env('username'), Cypress.env('password'));
     })
 
-    it('Create a new post and creatre member', () => {
+    it('Create a new post and create member', () => {
         adminPage.getNewPostButton().click();
         cy.wait(1000)
         cy.createPost('My first post', 'This is my first post');
@@ -60,4 +60,34 @@ describe('Ghost tests', () => {
         adminPage.getPublishedPostsButton().click();
         publishedPostsPage.getAllPostTitles().contains('My first post edited').should('exist');
     });
+
+    it('add member, edit post and delete post', () => {
+        adminPage.navigateToMembersPage();
+        cy.wait(1000)
+        cy.createMember('test 2', 'test2@test.com', 'This is a test member 2');
+        adminPage.navigateToMembersPage();
+        cy.wait(1000)
+        cy.reload();
+
+        memberPage.getFirstMemberName().should(($name) => {
+            expect($name).to.contain('test 2');
+        });
+
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        cy.wait(1000)
+
+        cy.editPost('My first post edited', 'My first post edited 2', 'This is my first post edited 2');
+        cy.wait(500)
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        publishedPostsPage.getAllPostTitles().contains('My first post edited 2').should('exist');
+
+        cy.deletePost('My first post edited 2');
+        cy.wait(1000)
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        publishedPostsPage.getAllPostTitles().contains('My first post edited 2').should('not.exist');
+    });
+
 });

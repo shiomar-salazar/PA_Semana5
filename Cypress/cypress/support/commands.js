@@ -29,12 +29,15 @@ import { PostPage } from "../pageObject/postPage";
 import { MemberDetailPage } from "../pageObject/memberDeailPage";
 import { MemberPage } from "../pageObject/membersPage";
 import { PublishedPostsPage } from "../pageObject/publishedPostsPage";
+import { ModalPage } from "../pageObject/modalPage";
+
 
 const memberPage = new MemberPage();
 const postPage = new PostPage();
 const loginPage = new LoginPage();
 const memberDetailPage = new MemberDetailPage();
 const publishedPostsPage = new PublishedPostsPage();
+const modalPage = new ModalPage();
 
 Cypress.Commands.add("login", (email, password) => {
     loginPage.getEmailInput().type(email);
@@ -65,7 +68,7 @@ Cypress.Commands.add("deleteMember", (name) => {
     memberPage.getMemberLink(name).click();
     memberDetailPage.getDropdownButton().click();
     memberDetailPage.getDeleteButton().click();
-    memberPage.getConfirmDeleteButton().click();
+    modalPage.getConfirmDeleteButton().click();
 });
 
 Cypress.Commands.add("editPost", (title, newTitle, content) => {
@@ -75,7 +78,12 @@ Cypress.Commands.add("editPost", (title, newTitle, content) => {
     postPage.getUpdatePostButton().click();
 });
 
-
+Cypress.Commands.add("deletePost", (title) => {
+    publishedPostsPage.getAllPostTitles().contains(title).click();
+    postPage.getSideMenuButton().click();
+    postPage.getSideMenuDeleteButton().click();
+    modalPage.getConfirmDeleteButton().click();
+});
 
 
 
