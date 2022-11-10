@@ -1,6 +1,6 @@
 {  
     "env": {
-        "username": "suemail",
+        "username": "sucorreo",
         "password": "supassword",
         "adminUrl": "http://localhost:2368/ghost"
     }

@@ -197,4 +197,93 @@ describe('Ghost tests', () => {
 
         memberPage.getMembersList().contains('test 4').should('not.exist');
     });
+
+    it('8. create post, edit post, create post and delete post', () => {
+        adminPage.navigateToMainPage();
+        adminPage.getNewPostButton().click();
+        cy.wait(1000)
+        cy.createPost('My seventh post', 'This is my seventh post');
+
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        cy.wait(1000)
+
+        cy.editPost('My seventh post', 'My seventh post edited', 'This is my seventh post edited');
+        cy.wait(500)
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        publishedPostsPage.getAllPostTitles().contains('My seventh post edited').should('exist');
+
+        adminPage.navigateToMainPage();
+        adminPage.getNewPostButton().click();
+        cy.wait(1000)
+        cy.createPost('My eighth post', 'This is my eighth post');
+
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        cy.wait(1000)
+
+        cy.deletePost('My eighth post');
+        cy.wait(1000)
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        publishedPostsPage.getAllPostTitles().contains('My eighth post').should('not.exist');
+    });
+
+    it('9. create post, add member and delete post', () => {
+        adminPage.navigateToMainPage();
+        adminPage.getNewPostButton().click();
+        cy.wait(1000)
+        cy.createPost('My ninth post', 'This is my ninth post');
+
+        adminPage.navigateToMembersPage();
+        cy.wait(1000)
+        cy.createMember('test 5', 'test5@test.com', 'This is a test member 5');
+        adminPage.navigateToMembersPage();
+        cy.wait(1000)
+
+        memberPage.getMembersList().contains('test 5').should('exist');
+
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        cy.wait(1000)
+
+        cy.deletePost('My ninth post');
+        cy.wait(1000)
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        publishedPostsPage.getAllPostTitles().contains('My ninth post').should('not.exist');
+    });
+
+    it('10. add member, create post, edit post and delete member', () => {
+        adminPage.navigateToMembersPage();
+        cy.wait(1000)
+        cy.createMember('test 6', 'test6@test.com', 'This is a test member 6');
+        adminPage.navigateToMembersPage();
+        cy.wait(1000)
+
+        memberPage.getMembersList().contains('test 6').should('exist');
+
+        adminPage.navigateToMainPage();
+        adminPage.getNewPostButton().click();
+        cy.wait(1000)
+        cy.createPost('My tenth post', 'This is my tenth post');
+
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        cy.wait(1000)
+
+        cy.editPost('My tenth post', 'My tenth post edited', 'This is my tenth post edited');
+        cy.wait(500)
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        publishedPostsPage.getAllPostTitles().contains('My tenth post edited').should('exist');
+
+        cy.wait(1000)
+        adminPage.navigateToMembersPage();
+        cy.deleteMember('test 6');
+        cy.wait(1000)
+
+        memberPage.getMembersList().contains('test 6').should('not.exist');
+    });
 });

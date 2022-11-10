@@ -65,14 +65,14 @@ Cypress.Commands.add("createMember", (name, email, note) => {
 
 
 Cypress.Commands.add("deleteMember", (name) => {
-    memberPage.getMemberLink(name).click();
+    memberPage.getMemberLink(name).click({force: true});
     memberDetailPage.getDropdownButton().click();
     memberDetailPage.getDeleteButton().click();
     modalPage.getConfirmDeleteButton().click();
 });
 
 Cypress.Commands.add("editPost", (title, newTitle, content) => {
-    publishedPostsPage.getAllPostTitles().contains(title).click();
+    publishedPostsPage.getAllPostTitles().contains(title).click({force: true});
     postPage.getPostTitleInput().clear().type(newTitle);
     postPage.getPostContentInput().clear().type(content);
     postPage.getUpdatePostButton().click();
