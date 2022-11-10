@@ -79,7 +79,7 @@ Cypress.Commands.add("editPost", (title, newTitle, content) => {
 });
 
 Cypress.Commands.add("deletePost", (title) => {
-    publishedPostsPage.getAllPostTitles().contains(title).click();
+    publishedPostsPage.getAllPostTitles().contains(title).click({force: true});
     postPage.getSideMenuButton().click();
     postPage.getSideMenuDeleteButton().click();
     modalPage.getConfirmDeleteButton().click();

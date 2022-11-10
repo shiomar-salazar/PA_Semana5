@@ -14,7 +14,7 @@ describe('Ghost tests', () => {
         cy.login(Cypress.env('username'), Cypress.env('password'));
     })
 
-    it('Create a new post and create member', () => {
+    it('1. Create a new post and create member', () => {
         adminPage.getNewPostButton().click();
         cy.wait(1000)
         cy.createPost('My first post', 'This is my first post');
@@ -41,7 +41,7 @@ describe('Ghost tests', () => {
         })
     });
 
-    it('delete member and edit post', () => {
+    it('2. delete member and edit post', () => {
         cy.wait(1000)
         adminPage.navigateToMembersPage();
 
@@ -61,7 +61,7 @@ describe('Ghost tests', () => {
         publishedPostsPage.getAllPostTitles().contains('My first post edited').should('exist');
     });
 
-    it('add member, edit post and delete post', () => {
+    it('3. add member, edit post and delete post', () => {
         adminPage.navigateToMembersPage();
         cy.wait(1000)
         cy.createMember('test 2', 'test2@test.com', 'This is a test member 2');
@@ -91,7 +91,7 @@ describe('Ghost tests', () => {
     });
 
 
-    it('delete member, create post and edit post', () => {
+    it('4. delete member, create post and edit post', () => {
         adminPage.navigateToMembersPage();
         cy.wait(1000)
         cy.deleteMember('test 2');
@@ -115,8 +115,9 @@ describe('Ghost tests', () => {
         publishedPostsPage.getAllPostTitles().contains('My second post edited').should('exist');
     });
 
-    it('create post, delete post, create post and edit post', () => {
+    it('5. create post, delete post, create post and edit post', () => {
         adminPage.navigateToMainPage();
+        cy.wait(1000)
         adminPage.getNewPostButton().click();
         cy.wait(1000)
         cy.createPost('My third post', 'This is my third post');
@@ -145,5 +146,55 @@ describe('Ghost tests', () => {
         adminPage.navigateToPostsPage();
         adminPage.getPublishedPostsButton().click();
         publishedPostsPage.getAllPostTitles().contains('My fourth post edited').should('exist');
+    });
+
+    it('6. create post, create post, delete post and edit post', () => {
+        adminPage.navigateToMainPage();
+        adminPage.getNewPostButton().click();
+        cy.wait(1000)
+        cy.createPost('My fifth post', 'This is my fifth post');
+
+        adminPage.navigateToMainPage();
+        adminPage.getNewPostButton().click();
+        cy.wait(1000)
+        cy.createPost('My sixth post', 'This is my sixth post');
+
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        cy.wait(1000)
+
+        cy.deletePost('My sixth post');
+        cy.wait(1000)
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        publishedPostsPage.getAllPostTitles().contains('My sixth post').should('not.exist');
+        cy.wait(1000)
+
+        
+        cy.editPost('My fifth post', 'My fifth post edited', 'This is my fifth post edited');
+        cy.wait(1000)
+        adminPage.navigateToPostsPage();
+        adminPage.getPublishedPostsButton().click();
+        publishedPostsPage.getAllPostTitles().contains('My fifth post edited').should('exist');
+    });
+
+    it('7. add member, add member and delete member', () => {
+        adminPage.navigateToMembersPage();
+        cy.wait(1000)
+        cy.createMember('test 3', 'test3@test.com', 'This is a test member 3');
+        adminPage.navigateToMembersPage();
+        cy.wait(1000)
+
+        memberPage.getMembersList().contains('test 3').should('exist');
+
+        cy.createMember('test 4', 'test4@test.com', 'This is a test member 4');
+        adminPage.navigateToMembersPage();
+        cy.wait(1000)
+        memberPage.getMembersList().contains('test 4').should('exist');
+
+        cy.deleteMember('test 4');
+        cy.wait(1000)
+
+        memberPage.getMembersList().contains('test 4').should('not.exist');
     });
 });
