@@ -26,28 +26,28 @@ Hacer login en Ghost Admin es una Funcionalidad implícita.
 ### Listado de Escenarios:
 Se considera que todos los escenarios inician con un SetUp clean:
 - Sin Miembros.
-- Solo el Psot por defecto de la pagina.
+- Solo el Post por defecto de la pagina.
 - Login es parte implícita de la prueba.
 
 | #  | Escenario |
 |----|-----------|
-| 1  | Agregar Miembro + Crear Post |
-| 2  | Eliminar Miembro + Editar Post |
-| 3  | Agregar Miembro + Editar Post + Eliminar Post |
-| 4  | Eliminar Miembro + Crear Post + Editar Post |
-| 5  | Crear Post + Eliminar Post + Crear Post + Editar Post |
-| 6  | Crear Post + Crear Post  + Eliminar Post + Editar Post |
-| 7  | Agregar Miembro +  Agregar Miembro + Eliminar Miembro |
-| 8  | Crear Post + Editar Post + Crear Post + Eliminar Post |
-| 9  | Crear Post + Agregar Miembro + Eliminar Post |
-| 10 | Agregar Miembro + Crear Post + Editar Post + Eliminar Miembro |
-| 11 | Crear Post + Agregar Miembro + Editar Post + Eliminar Post  |
-| 12 | Agregar Miembro + Crear Post + Agregar Miembro |
-| 13 | Agregar Miembro + Eliminar Miembro + Eliminar Miembro |
-| 14 | Agregar Miembro + Eliminar Post + Eliminar Post |
-| 15 | Crear Post + Crear Post + Crear Post + Editar Post |
-| 16 | Crear Post + Eliminar Post +  Editar Post + Eliminar Post |
-| 17 | Agregar Miembro + Crear Post + Crear Post + Eliminar Post |
-| 18 | Agregar Miembro + Editar Post + Crear Post + Editar Post |
-| 19 | Editar Post + Agregar Miembro + Crear Post + Eliminar Miembro |
-| 20 | Editar Post + Agregar Miembro + Editar Post + Crear Post |
+|  1 | Despues de hacer Login, quiero Agregar un nuevo Miembro y despues Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente |
+|  2 | Despues de hacer Login, quiero Eliminar un Miembro y despues Editar un Post y espero que se valide la lista de miebros vacia y no arroje excepciones y los pasos se terminen |
+|  3 | Despues de hacer Login, quiero Agregar un nuevo Miembro y Editar un Post existente y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+|  4 | Despues de hacer Login, quiero Eliminar un Miembro existente y Crear un nuevo Post y Editar un Post existente y espero que se valide la lista de miebros vacia y no arroje excepciones y los pasos se terminen |
+|  5 | Despues de hacer Login, quiero Crear un nuevo Post y Eliminar un Post existente y Crear un nuevo Post y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+|  6 | Despues de hacer Login, quiero Crear un nuevo Post y Crear un nuevo Post y Eliminar un Post existente y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+|  7 | Despues de hacer Login, quiero Agregar un nuevo Miembro y Agregar un nuevo Miembro y Eliminar un Miembro existente y espero que todos los pasos se puedan ejecutar correctamente |
+|  8 | Despues de hacer Login, quiero Crear un nuevo Post y Editar un Post existente y Crear un nuevo Post y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+|  9 | Despues de hacer Login, quiero Crear un nuevo Post y Agregar un nuevo Miembro y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+| 10 | Despues de hacer Login, quiero Agregar un nuevo Miembro y Crear un nuevo Post y Editar un Post existente y Eliminar un Miembro existente y espero que todos los pasos se puedan ejecutar correctamente |
+| 11 | Despues de hacer Login, quiero Crear un nuevo Post y Agregar un nuevo Miembro y Editar un Post existente y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+| 12 | Despues de hacer Login, quiero Agregar un nuevo Miembro y Crear un nuevo Post y Agregar un nuevo Miembro y espero que todos los pasos se puedan ejecutar correctamente |
+| 13 | Despues de hacer Login, quiero Agregar un nuevo Miembro y Eliminar un Miembro existente y Eliminar un Miembro existente y espero que todos los pasos se puedan ejecutar correctamente |
+| 14 | Despues de hacer Login, quiero Agregar un nuevo Miembro y Eliminar un Post existente y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+| 15 | Despues de hacer Login, quiero Crear un nuevo Post y Crear un nuevo Post y Crear un nuevo Post y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+| 16 | Despues de hacer Login, quiero Crear un nuevo Post y Eliminar un Post existente y Editar un Post existente y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+| 17 | Despues de hacer Login, quiero Agregar un nuevo Miembro y Crear un nuevo Post y Crear un nuevo Post y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+| 18 | Despues de hacer Login, quiero Agregar un nuevo Miembro y Editar un Post existente y Crear un nuevo Post y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+| 19 | Despues de hacer Login, quiero Editar un Post existente y Agregar un nuevo Miembro y Crear un nuevo Post y Eliminar un Miembro existente y espero que todos los pasos se puedan ejecutar correctamente |
+| 20 | Despues de hacer Login, quiero Editar un Post existente y Agregar un nuevo Miembro y Editar un Post existente y Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente |
