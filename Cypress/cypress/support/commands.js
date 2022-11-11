@@ -86,4 +86,18 @@ Cypress.Commands.add("deletePost", (title) => {
 });
 
 
+Cypress.Commands.add("deleteAllPosts", () => {
+    publishedPostsPage.getAllPostsTitleText().each(($el, index, $list) => {
+        cy.deletePost($el.text().trim());
+    });
+});
+
+
+Cypress.Commands.add("deleteAllMembers", () => {
+    memberPage.getAllMembersListNames().each(($el, index, $list) => {
+        cy.deleteMember($el.text().trim());
+    });
+});
+
+
 

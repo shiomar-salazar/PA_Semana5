@@ -1,6 +1,6 @@
 export class MemberPage {
     getNewMemberButton() {
-        return cy.get('a[href="#/members/new/"]');
+        return cy.get('div[class="view-actions-top-row"] > a[href="#/members/new/"]');
     }
 
     getFirstMemberName() {
@@ -13,5 +13,17 @@ export class MemberPage {
 
     getMembersList() {
         return cy.get('table[class="gh-list"] > tbody > tr');
+    }
+
+    getAllMembersListNames() {
+        return cy.get('table[class="gh-list"] > tbody > tr > a > div > div > h3');
+    }
+
+    membersListContainer() {
+        return cy.get('section.members-list-container-stretch');
+    }
+
+    getMembersListSelector() {
+        return 'table[class="gh-list"] > tbody > tr';
     }
 }
