@@ -36,12 +36,14 @@ describe('Ghost tests', () => {
         adminPage.navigateToMembersPage();
         cy.wait(1000)
         cy.createMember('test 3', 'test3@test.com', 'This is a test member 3');
+        cy.wait(1000)
         adminPage.navigateToMembersPage();
         cy.wait(1000)
 
         memberPage.getMembersList().contains('test 3').should('exist');
 
         cy.createMember('test 4', 'test4@test.com', 'This is a test member 4');
+        cy.wait(1000)
         adminPage.navigateToMembersPage();
         cy.wait(1000)
         memberPage.getMembersList().contains('test 4').should('exist');

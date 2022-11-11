@@ -36,6 +36,7 @@ describe('Ghost tests', () => {
         adminPage.navigateToMembersPage();
         cy.wait(1000)
         cy.createMember('test 6', 'test6@test.com', 'This is a test member 6');
+        cy.wait(1000)
         adminPage.navigateToMembersPage();
         cy.wait(1000)
 

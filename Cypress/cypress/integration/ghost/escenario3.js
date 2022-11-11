@@ -16,7 +16,7 @@ describe('Ghost tests', () => {
         adminPage.getNewPostButton().click();
         cy.wait(1000)
         cy.createPost('post to update', 'This is a post to update');
-
+        cy.wait(1000)
         adminPage.navigateToMainPage();
         adminPage.navigateToMembersPage();
         cy.createMember('user to delete', 'test@test1.com', 'This is a test member');

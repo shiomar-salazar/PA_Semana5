@@ -37,10 +37,11 @@ describe('Ghost tests', () => {
         adminPage.getNewPostButton().click();
         cy.wait(1000)
         cy.createPost('My ninth post', 'This is my ninth post');
-
+        cy.wait(1000)
         adminPage.navigateToMembersPage();
         cy.wait(1000)
         cy.createMember('test 5', 'test5@test.com', 'This is a test member 5');
+        cy.wait(1000)
         adminPage.navigateToMembersPage();
         cy.wait(1000)
 
