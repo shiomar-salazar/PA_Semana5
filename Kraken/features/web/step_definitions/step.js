@@ -1,13 +1,9 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-/*const expect = require('chai').expect;
-
 // con la libreria chai se debe validar si el evento se cumplio, Ej: que se creo el post
+const expect = require('chai').expect;
 
-Then('I see that the post is not liked', async function () {
-  let elements = await this.driver.$$("span[aria-label='See who reacted to this']");
-  expect(elements.length).to.equal(0);
-});
-*/
+
+
 
 
 //  crear un post en Ghost
@@ -38,8 +34,15 @@ Then('I should see the post published', async function () {
   await new Promise(r=> setTimeout(r,2000));
   await this.driver.$('div[class="gh-publish-cta"] > button:first-of-type').click();
   await new Promise(r=> setTimeout(r,5000));
-  
+  let elements = await this.driver.$$("#ember971");
+  expect(elements.length).to.equal(0); //validar si se creo el post
 });
+/*
+Then('I see the post published', async function () {
+  let elements = await this.driver.$$("span[aria-label='See who reacted to this']");
+  expect(elements.length).to.equal(0);
+});
+*/
 
 
 //  editar un post en Ghost
