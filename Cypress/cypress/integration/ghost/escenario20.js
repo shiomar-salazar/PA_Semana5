@@ -20,7 +20,7 @@ describe('Ghost tests', () => {
         cy.deletePost('My Test Post # 20');
         cy.wait(1000)
         adminPage.navigateToMembersPage();
-        cy.deleteAllMembers();
+        cy.deleteMember('John Doe');
         cy.wait(1000);
     })
 
