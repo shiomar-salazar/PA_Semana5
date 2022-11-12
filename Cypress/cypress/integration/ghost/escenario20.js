@@ -44,6 +44,8 @@ describe('Ghost tests', () => {
 
         /* And I create a new Post */
         adminPage.navigateToMainPage();
+        cy.wait(1000)
+        cy.reload();
         adminPage.getNewPostButton().click();
         cy.wait(1000)
         cy.createPost('My Test Post # 20', 'This is the post for this test');
