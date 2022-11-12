@@ -1,4 +1,4 @@
-## Prueebas Automatizadas Equipo #
+## Prueebas Automatizadas Equipo #7
 Semana 5
 ### Integrantes:
 - Roberto Amin (r.amin@uniandes.edu.co)
