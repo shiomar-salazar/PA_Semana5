@@ -1,27 +1,34 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
+
+/*const expect = require('chai').expect;
+
 // con la libreria chai se debe validar si el evento se cumplio, Ej: que se creo el post
-const expect = require('chai').expect;
 
-
-
+Then('I see that the post is not liked', async function () {
+  let elements = await this.driver.$$("span[aria-label='See who reacted to this']");
+  expect(elements.length).to.equal(0); // debo revisar que sean iguales en tamano los titulos
+});
+*/
 
 
 //  crear un post en Ghost
 
 Given('I want to create a new Post', async function(){
+  await this.driver.url("http://localhost:2368/ghost/#/posts");
+  await new Promise(r=> setTimeout(r,3000));
   let element = await this.driver.$('a[href="#/editor/post/"]');
   await new Promise(r=> setTimeout(r,2000));
   return await element.click();
 }); 
 
-When('I fill the information Post', async function () {
+When('I fill the information Post {kraken-string},{kraken-string}', async function (titulo, parrafo) {
   await this.driver.$('textarea[placeholder="Post title"]').click();
   await new Promise(r=> setTimeout(r,2000));
-  await this.driver.$('textarea[placeholder="Post title"]').setValue("El mejor viaje que me he regalado");
+  await this.driver.$('textarea[placeholder="Post title"]').setValue(titulo);
   await new Promise(r=> setTimeout(r,2000));
   await this.driver.$('div[data-placeholder="Begin writing your post..."]').click();
   await new Promise(r=> setTimeout(r,2000));
-  await this.driver.$('div[data-placeholder="Begin writing your post..."]').setValue("Nueva PRueba, En medio de su viaje a Egipto por cuenta de la COP27, la ministra de Minas y Energía, Irene Vélez, anunció cuáles serán los primeros pasos para la construcción de lo que sería la hoja de ruta para la transición energética.");
+  await this.driver.$('div[data-placeholder="Begin writing your post..."]').setValue(parrafo);
   await new Promise(r=> setTimeout(r,2000));
   
 
@@ -34,15 +41,9 @@ Then('I should see the post published', async function () {
   await new Promise(r=> setTimeout(r,2000));
   await this.driver.$('div[class="gh-publish-cta"] > button:first-of-type').click();
   await new Promise(r=> setTimeout(r,5000));
-  let elements = await this.driver.$$("#ember971");
-  expect(elements.length).to.equal(0); //validar si se creo el post
+  await this.driver.url("http://localhost:2368/ghost/#/posts");
+  await new Promise(r=> setTimeout(r,2000));
 });
-/*
-Then('I see the post published', async function () {
-  let elements = await this.driver.$$("span[aria-label='See who reacted to this']");
-  expect(elements.length).to.equal(0);
-});
-*/
 
 
 //  editar un post en Ghost
@@ -50,7 +51,7 @@ Then('I see the post published', async function () {
 Given('I want to edit a Post', async function(){
   await new Promise(r=> setTimeout(r,2000));
   await this.driver.url("http://localhost:2368/ghost/#/posts");
-  await new Promise(r=> setTimeout(r,2000));
+  await new Promise(r=> setTimeout(r,4000));
   await this.driver.$('ol.posts-list > li:first-of-type > a').click();
   await new Promise(r=> setTimeout(r,2000));
   await this.driver.$('.gh-post-list-cta.edit').click();
@@ -61,9 +62,9 @@ Given('I want to edit a Post', async function(){
 
 Then('I should see the Post Updated', async function () {
   let element =await this.driver.$('button.gh-editor-save-trigger.green');
-  await new Promise(r=> setTimeout(r,2000));
+  await new Promise(r=> setTimeout(r,4000));
   return await element.click();
-  
+   
 });
 
 
@@ -80,9 +81,11 @@ When('I selected the delete post settings', async function () {
 
 
 Then('I should confirm the Post deleted', async function () {
-  let element = await this.driver.$('.gh-btn.gh-btn-red.gh-btn-icon.ember-view');
-  await new Promise(r=> setTimeout(r,5000));
-  return await element.click();
+  await this.driver.$('.gh-btn.gh-btn-red.gh-btn-icon.ember-view').click();
+  await new Promise(r=> setTimeout(r,2000));
+  await this.driver.$('.posts_svg__a').click();
+  await new Promise(r=> setTimeout(r,2000));
+  
 });
 
 
@@ -98,18 +101,18 @@ Given('I want to create a new Member', async function(){
   
 }); 
 
-When('I fill the information of the Member', async function () {
+When('I fill the information of the Member {kraken-string},{kraken-string},{kraken-string}', async function (nombre, correo, descripcion) {
   await this.driver.$('input[name="name"]').click();
   await new Promise(r=> setTimeout(r,2000));
-  await this.driver.$('input[name="name"]').setValue("ermenegildo Zegna");
+  await this.driver.$('input[name="name"]').setValue(nombre);
   await new Promise(r=> setTimeout(r,2000));
   await this.driver.$('input[name="email"]').click();
   await new Promise(r=> setTimeout(r,2000));
-  await this.driver.$('input[name="email"]').setValue("ermenegildo.zegna@hotmail.com");
+  await this.driver.$('input[name="email"]').setValue(correo);
   await new Promise(r=> setTimeout(r,2000));
   await this.driver.$('textarea[name="note"]').click();
   await new Promise(r=> setTimeout(r,2000));
-  await this.driver.$('textarea[name="note"]').setValue("Gran diseñador de ropa, quien se ha distinguido por liderar los mercados Europeos");
+  await this.driver.$('textarea[name="note"]').setValue(descripcion);
   await new Promise(r=> setTimeout(r,2000));
   await this.driver.$('section[class="view-actions"] > button').click();
   await new Promise(r=> setTimeout(r,2000));
@@ -146,7 +149,7 @@ When('I select the delete Member option', async function () {
   await this.driver.$('.gh-btn.gh-btn-red.gh-btn-icon.ember-view').click();
   await new Promise(r=> setTimeout(r,2000));
   await this.driver.$('.gh-btn.gh-btn-red').click();
-  await new Promise(r=> setTimeout(r,2000));
+  await new Promise(r=> setTimeout(r,5000));
    
 });
 
@@ -159,26 +162,3 @@ Then('I should see the Member deleted', async function () {
 
 
 
-//  Como usuario quiero crear un miembro nuevo y luego crear un Post en Ghost
-
- /* 
-@user5 @web   
-
-
-Scenario: Como usuario quiero crear un miembro nuevo y luego crear un Post en Ghost
-
-	Given I want to create a new Member
-	When I fill the information of the Member
-	Then I should see the Member published
-	And I want to create a new Post
-	And I fill the information Post
-	And I should see the post published
-
-
-
- 
-
-
-
-   
-*/
