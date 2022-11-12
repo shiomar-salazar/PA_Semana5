@@ -17,7 +17,7 @@ describe('Ghost tests', () => {
     afterEach(() => {
         /* Clean Up after test */
         adminPage.navigateToMembersPage();
-        cy.deleteAllMembers();
+        cy.deleteMember('John Doe');
         cy.wait(1000);
         adminPage.navigateToPostsPage();
         cy.deletePost('post editado');
