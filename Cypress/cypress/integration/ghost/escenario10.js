@@ -31,6 +31,13 @@ describe('Ghost tests', () => {
         cy.wait(1000);
     })
 
+    afterEach(() => {
+        /* Clean Up after test */
+        adminPage.navigateToPostsPage();
+        cy.deletePost('My tenth post edited');
+        cy.wait(1000)
+    })
+
 
     it('10. Despues de hacer Login, quiero Agregar un nuevo Miembro y Crear un nuevo Post y Editar un Post existente y Eliminar un Miembro existente y espero que todos los pasos se puedan ejecutar correctamente', () => {
         adminPage.navigateToMembersPage();
