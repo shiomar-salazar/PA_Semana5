@@ -1,10 +1,12 @@
 ## Prueebas Automatizadas Equipo #7
-Semana 5
+
 ### Integrantes:
 - Roberto Amin (r.amin@uniandes.edu.co)
 - Federico Bedoya (f.bedoyag@uniandes.edu.co)
 - Shiomar Salazar (s.salazarc@uniandes.edu.co)
 - Andres Soler (a.solerf@uniandes.edu.co)
+
+## Semana 5
 
 ### Enlaces a archivos Readme:
 Cada Herramienta tiene su propio redame con las instruciones para ejecucion de las pruebas.
@@ -51,3 +53,24 @@ Se considera que todos los escenarios inician con un SetUp clean:
 | 18 | Despues de hacer Login, quiero Agregar un nuevo Miembro y Editar un Post existente y Crear un nuevo Post y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
 | 19 | Despues de hacer Login, quiero Editar un Post existente y Agregar un nuevo Miembro y Crear un nuevo Post y Eliminar un Miembro existente y espero que todos los pasos se puedan ejecutar correctamente |
 | 20 | Despues de hacer Login, quiero Editar un Post existente y Agregar un nuevo Miembro y Editar un Post existente y Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente |
+
+## Semana 6
+### Cypress
+#### Escenarios ejecutados en Cypress para las pruebas VRT
+| #  | Escenario |
+|----|-----------|
+|  1 | Despues de hacer Login, quiero Agregar un nuevo Miembro y despues Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente |
+|  2 | Despues de hacer Login, quiero Eliminar un Miembro y despues Editar un Post y espero que se valide la lista de miebros vacia y no arroje excepciones y los pasos se terminen |
+|  4 | Despues de hacer Login, quiero Eliminar un Miembro existente y Crear un nuevo Post y Editar un Post existente y espero que se valide la lista de miebros vacia y no arroje excepciones y los pasos se terminen |
+| 15 | Despues de hacer Login, quiero Crear un nuevo Post y Crear un nuevo Post y Crear un nuevo Post y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+| 16 | Despues de hacer Login, quiero Crear un nuevo Post y Eliminar un Post existente y Editar un Post existente y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+
+Ruta con captura de pantalla de los 20 escenarios originales:
+- https://github.com/shiomar-salazar/PA_Semana5/tree/main/Cypress/results/screenshots/ghost
+
+Ruta con los reportes de VRT de los escenarios escogidos:
+- https://github.com/shiomar-salazar/PA_Semana5/tree/main/Cypress/resemble_results/results
+
+### Kraken
+#### Escenarios ejecutados en Kraken para las pruebas VRT
+
