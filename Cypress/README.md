@@ -11,9 +11,13 @@
 7. Ejecute en la tarminal abierta el comando: "npm run cy:runGhost" para ejecutar solo las pruebas de la version Actual de Ghost
 
 ### Correr Version Vieja de Ghost (v4.44)
-1.
-2.
-3. Ejecute en la tarminal abierta el comando: "npm run cy:runrunGhostOldGhost" para ejecutar solo las pruebas de la version Vieja de Ghost
+1. instalar docker en su computador
+2. correr docker para poder correr el contenedor e instalar la imagen
+3. usar el comando docker run -d -e url=http://localhost:3002 -p 3002:2368 --name ghost_4.44.0 ghost:4.44.0
+5. verificar que en el puerto 3002 se este ejecutando ghost 4.44
+6. Ejecute en la tarminal abierta el comando: "npm run cy:runrunGhostOldGhost" para ejecutar solo las pruebas de la version Vieja de Ghost
+
+(NOTA: se uso ghost v4.44 en vez de 3.2 por que en cypress usando la version 3.2 disparaba un error que se pregunto por el chat de slack 2 veces y ningun tutor ni profesor respondio, se intento buscar solucion en internet pero no se encontro, aun asi se hizo la regresion bajando de la version 5 a la 4)
 
 ### Correr todas las pruebas
 1. Antes de ejecutar las pruebas para la captura de las pantallazos del VRT, por favor ejecute el batch: Cypress\results\clean_screenshot.bat
