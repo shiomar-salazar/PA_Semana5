@@ -17,7 +17,7 @@
 
 ### Correr todas las pruebas
 1. Antes de ejecutar las pruebas para la captura de las pantallazos del VRT, por favor ejecute el batch: Cypress\results\clean_screenshot.bat
-  * Se necesita borrar las capturas de pantalla vieja porque la versiond de Cypress 6.8 no tiene la opcion de overwrite implementada.
+   * Se necesita borrar las capturas de pantalla vieja porque la versiond de Cypress 6.8 no tiene la opcion de overwrite implementada.
 2. Como las dos versiones de Ghost pueden correr a la vez, se puede ejecutar todas las pruebas utilizando el comando: "npm run cy:runGhost" en su terminal en la raíz del repositorio.
 
 ### Correr pruebas VRT y obtener reporte
