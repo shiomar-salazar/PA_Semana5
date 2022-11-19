@@ -1,20 +1,12 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 
-/*const expect = require('chai').expect;
 
-// con la libreria chai se debe validar si el evento se cumplio, Ej: que se creo el post
-
-Then('I see that the post is not liked', async function () {
-  let elements = await this.driver.$$("span[aria-label='See who reacted to this']");
-  expect(elements.length).to.equal(0); // debo revisar que sean iguales en tamano los titulos
-});
-*/
-
+// se reutiliza Archivo de Steps inicial modificando unicamente el servidor para Ghost 3.4.2.
 
 //  crear un post en Ghost
 
 Given('I want to create a new Post', async function(){
-  await this.driver.url("http://localhost:2368/ghost/#/posts");
+  await this.driver.url("http://localhost:3001/ghost/#/posts");
   await new Promise(r=> setTimeout(r,3000));
   let element = await this.driver.$('a[href="#/editor/post/"]');
   await new Promise(r=> setTimeout(r,2000));
@@ -41,7 +33,7 @@ Then('I should see the post published', async function () {
   await new Promise(r=> setTimeout(r,2000));
   await this.driver.$('div[class="gh-publish-cta"] > button:first-of-type').click();
   await new Promise(r=> setTimeout(r,5000));
-  await this.driver.url("http://localhost:2368/ghost/#/posts");
+  await this.driver.url("http://localhost:3001/ghost/#/posts");
   await new Promise(r=> setTimeout(r,2000));
 });
 
@@ -50,7 +42,7 @@ Then('I should see the post published', async function () {
 
 Given('I want to edit a Post', async function(){
   await new Promise(r=> setTimeout(r,2000));
-  await this.driver.url("http://localhost:2368/ghost/#/posts");
+  await this.driver.url("http://localhost:3001/ghost/#/posts");
   await new Promise(r=> setTimeout(r,4000));
   await this.driver.$('ol.posts-list > li:first-of-type > a').click();
   await new Promise(r=> setTimeout(r,2000));
@@ -94,7 +86,7 @@ Then('I should confirm the Post deleted', async function () {
 
 Given('I want to create a new Member', async function(){
   await new Promise(r=> setTimeout(r,2000));
-  await this.driver.url("http://localhost:2368/ghost/#/members");
+  await this.driver.url("http://localhost:3001/ghost/#/members");
   await new Promise(r=> setTimeout(r,2000));
   await this.driver.$('a[href="#/members/new/"]').click();
   await new Promise(r=> setTimeout(r,2000));
@@ -121,7 +113,7 @@ When('I fill the information of the Member {kraken-string},{kraken-string},{krak
 
 
 Then('I should see the Member published', async function () {
-  await this.driver.url("http://localhost:2368/ghost/#/members");
+  await this.driver.url("http://localhost:3001/ghost/#/members");
   await new Promise(r=> setTimeout(r,2000));
 });
 
@@ -131,7 +123,7 @@ Then('I should see the Member published', async function () {
 
 Given('I want to delete a Member', async function(){
   await new Promise(r=> setTimeout(r,2000));
-  await this.driver.url("http://localhost:2368/ghost/#/members");
+  await this.driver.url("http://localhost:3001/ghost/#/members");
   await new Promise(r=> setTimeout(r,2000));
   await this.driver.$('.gh-nav-member-count').click();
   await new Promise(r=> setTimeout(r,2000));
@@ -155,10 +147,7 @@ When('I select the delete Member option', async function () {
 
  
 Then('I should see the Member deleted', async function () {
-  await this.driver.url("http://localhost:2368/ghost/#/members");
+  await this.driver.url("http://localhost:3001/ghost/#/members");
   await new Promise(r=> setTimeout(r,2000));
 });
-
-
-
 
