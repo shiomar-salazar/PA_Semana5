@@ -56,6 +56,9 @@ Se considera que todos los escenarios inician con un SetUp clean:
 
 ## Semana 6
 ### Cypress
+
+> Por problemas con la version 3.42 de ghost y cypress, se uso como version Vieja Ghost 4.44 y como version Nueva Ghost 5.18.
+
 #### Escenarios ejecutados en Cypress para las pruebas VRT
 | #  | Escenario |
 |----|-----------|
