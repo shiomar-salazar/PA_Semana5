@@ -82,7 +82,7 @@ Ruta con los reportes de VRT de los escenarios escogidos:
 
 ### Kraken
 
-> Para Kraken utilizamos la version 3.42 de ghost como version Vieja y como version Nueva Ghost 5.22.9, dado que la funcionalidad Miembros No existe en la version 3.42 se omitieron escenarios de prueba comparativos usando escenarios que incluyeran dicha funcionalidad, remitiendonos a los escenarios relacionados con Post
+> Para Kraken utilizamos la version 3.42 de ghost como version Vieja y como version Nueva Ghost 5.22.9, dado que la funcionalidad Miembros No existe en la version 3.42 se omitieron escenarios de prueba que incluyeran dicha funcionalidad, remitiendonos unicamente a los escenarios que utilizan la funcionalidad Post
 
 #### Escenarios ejecutados en Kraken para las pruebas VRT
 
