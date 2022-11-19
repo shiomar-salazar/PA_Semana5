@@ -24,11 +24,19 @@ describe('Ghost tests', () => {
         adminPage.navigateToMainPageOld();
         adminPage.navigateToMembersPageOld();
         cy.createMemberOld('user to delete', 'test@test1.com', 'This is a test member');
+        cy.wait(1000)
         adminPage.navigateToMembersPageOld();
         cy.wait(1000)
         adminPage.navigateToMembersPageOld();
         cy.deleteAllMembersOld();
         cy.wait(1000);
+    })
+
+    afterEach(() => {
+        /* Clean Up after test */
+        adminPage.navigateToPostsPageOld();
+        cy.deletePost('My first post edited');
+        cy.wait(1000)
     })
 
 

@@ -148,6 +148,5 @@ Cypress.Commands.add("editPostOld", (title, newTitle, content) => {
     postPage.getPostContentInput().clear().type(content);
     postPage.getPublishPostButtonOld().click();
     postPage.getContinueButtonModalOld().click();
-    postPage.getConfirmPublishButtonModalOld().click();
 });
 
