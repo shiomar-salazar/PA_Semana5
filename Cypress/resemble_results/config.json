@@ -1,5 +1,8 @@
 {
     "browsers":["chromium"],
+    "scensCount": 5,
+    "scensNumber": [1,2,4,15,16],
+    "stepsCount": [8,4,11,12,12],
     "options":{
         "output": {
             "errorColor": {
@@ -16,8 +19,5 @@
         "ignore": "antialiasing"
     },
     "viewportHeight":600, 
-    "viewportWidth":800,
-    
-    "beforeImageUrl": "./results_copy/screenshots/ghost/escenario16.js/Ghost tests -- 16. Despues de hacer Login, quiero Crear un nuevo Post y Eliminar un Post existente y Editar un Post existente y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente.png",
-    "afterImageUrl": "./results_copy/screenshots/ghostOld/escenario16.js/Ghost Old tests -- 16. Despues de hacer Login, quiero Crear un nuevo Post y Eliminar un Post existente y Editar un Post existente y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente.png"
+    "viewportWidth":800
 }

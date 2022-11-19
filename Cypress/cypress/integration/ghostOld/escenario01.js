@@ -11,6 +11,7 @@ describe('Ghost tests', () => {
    
     beforeEach(() => {
         cy.visit(Cypress.env('ghost3url'));
+        cy.screenshot('screenshot_1');
 
         cy.login(Cypress.env('username'), Cypress.env('password'));
         cy.wait(1000);
@@ -38,21 +39,28 @@ describe('Ghost tests', () => {
 
     it('user create a new post and invite a new member', () => {
         adminPage.getNewPostButtonOld().click();
+        cy.screenshot('screenshot_2');
         cy.wait(1000)
         cy.createPostOld('My first post', 'This is my first post');
+        cy.screenshot('screenshot_3');
 
         adminPage.navigateToPostsPageOld();
+        cy.screenshot('screenshot_4');
         adminPage.getPublishedPostsButton().click();
+        cy.screenshot('screenshot_5');
         cy.wait(1000)
 
         publishedPostsPage.getAllPostTitles().contains('My first post').should('exist');
         cy.wait(1000)
 
         adminPage.navigateToMembersPageOld();
+        cy.screenshot('screenshot_6');
         
         cy.createMemberOld('John Doe', 'test@test.com', 'This is a test member');
+        cy.screenshot('screenshot_7');
         cy.wait(1000)
         adminPage.navigateToMembersPageOld();
+        cy.screenshot('screenshot_8');
         cy.wait(1000)
 
         memberPage.getMembersList().contains('John Doe').should('exist');
