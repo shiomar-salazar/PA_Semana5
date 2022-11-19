@@ -9,6 +9,7 @@ describe('Ghost tests', () => {
    
     beforeEach(() => {
         cy.visit('http://localhost:2368/ghost')
+        cy.wait(500);
         cy.screenshot('screenshot_1');
 
         cy.login(Cypress.env('username'), Cypress.env('password'));
@@ -36,13 +37,16 @@ describe('Ghost tests', () => {
     it('2. delete member and edit post', () => {
         cy.wait(1000)
         adminPage.navigateToMembersPage();
+        cy.wait(500);
         cy.screenshot('screenshot_2');
         memberPage.getMembersList().should('not.exist');
 
 
         adminPage.navigateToPostsPage();
+        cy.wait(500);
         cy.screenshot('screenshot_3');
         adminPage.getPublishedPostsButton().click();
+        cy.wait(500);
         cy.screenshot('screenshot_4');
         publishedPostsPage.getAllPostTitles().should('not.exist')
     });
