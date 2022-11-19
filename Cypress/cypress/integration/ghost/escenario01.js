@@ -24,6 +24,7 @@ describe('Ghost tests', () => {
         cy.wait(1000);
 
         adminPage.navigateToMainPage();
+        cy.wait(1000);
         adminPage.navigateToMembersPage();
         cy.createMember('user to delete', 'test@test1.com', 'This is a test member');
         adminPage.navigateToMembersPage();
