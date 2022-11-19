@@ -1,5 +1,6 @@
 export class LoginPage {
     getEmailInput() {
+        // return cy.get('input[name="identification"]');
         return cy.get('input[name="identification"]');
     }
 

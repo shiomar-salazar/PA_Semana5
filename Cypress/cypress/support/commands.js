@@ -101,3 +101,53 @@ Cypress.Commands.add("deleteAllMembers", () => {
 
 
 
+
+
+
+// OLD GHOST
+Cypress.Commands.add("deleteMemberOld", (name) => {
+    memberPage.getMemberLink(name).click({force: true});
+    cy.wait(1000)
+    memberDetailPage.getDropdownButton().click();
+    cy.wait(1000)
+    memberDetailPage.getDeleteButton().click();
+    cy.wait(1000)
+    modalPage.getConfirmDeleteButton().click();
+});
+
+
+Cypress.Commands.add("deleteAllMembersOld", () => {
+    memberPage.getAllMembersListNames().each(($el, index, $list) => {
+        cy.deleteMemberOld($el.text().trim());
+    });
+});
+
+
+
+Cypress.Commands.add("createMemberOld", (name, email, note) => {
+    memberPage.getNewMemberButton().click();
+    memberDetailPage.getMemberNameInput().type(name, {force: true});
+    memberDetailPage.getMemberEmailInput().type(email, {force: true});
+    memberDetailPage.getNoteInput().type(note, {force: true});
+    memberDetailPage.getSaveButton().click({force: true});
+});
+
+
+
+Cypress.Commands.add("createPostOld", (title, content) => {
+    postPage.getPostTitleInput().type(title);
+    postPage.getPostContentInput().type(content);
+    postPage.getPublishPostButtonOld().click();
+    postPage.getContinueButtonModalOld().click();
+    postPage.getConfirmPublishButtonModalOld().click();
+});
+
+Cypress.Commands.add("editPostOld", (title, newTitle, content) => {
+    publishedPostsPage.getAllPostTitles().contains(title).click({force: true});
+    postPage.getPostTitleInput().clear().type(newTitle);
+    postPage.getPostContentInput().clear().type(content);
+    postPage.getPublishPostButtonOld().click();
+    postPage.getContinueButtonModalOld().click();
+    postPage.getConfirmPublishButtonModalOld().click();
+});
+

@@ -1,14 +1,16 @@
 import { AdminPage } from "../../pageObject/adminPage";
 import { PublishedPostsPage } from "../../pageObject/publishedPostsPage";
 import { MemberPage } from "../../pageObject/membersPage";
+
 const adminPage = new AdminPage();
 const publishedPostsPage = new PublishedPostsPage();
 const memberPage = new MemberPage();
 
+
 describe('Ghost tests', () => {
    
     beforeEach(() => {
-        cy.visit('http://localhost:2368/ghost')
+        cy.visit(Cypress.env('adminUrl'));
 
         cy.login(Cypress.env('username'), Cypress.env('password'));
         cy.wait(1000);
@@ -44,6 +46,7 @@ describe('Ghost tests', () => {
         publishedPostsPage.getFirstPostTitle().should(($title) => {
             expect($title).to.contain('My first post');
         })
+        cy.screenshot();
 
         adminPage.navigateToMembersPage();
         
@@ -57,5 +60,6 @@ describe('Ghost tests', () => {
         memberPage.getFirstMemberName().should(($name) => {
             expect($name).to.contain('John Doe');
         })
+        cy.screenshot();
     });
 });

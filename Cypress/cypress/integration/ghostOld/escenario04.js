@@ -8,50 +8,51 @@ const memberPage = new MemberPage();
 describe('Ghost tests', () => {
    
     beforeEach(() => {
-        cy.visit('http://localhost:2368/ghost')
+        cy.visit(Cypress.env('ghost3url'));
 
         cy.login(Cypress.env('username'), Cypress.env('password'));
         cy.wait(1000);
 
-        adminPage.getNewPostButton().click();
+        adminPage.getNewPostButtonOld().click();
         cy.wait(1000)
-        cy.createPost('post to delete', 'This is a post to delete');
-        adminPage.navigateToPostsPage();
+        cy.createPostOld('post to delete', 'This is a post to delete');
+        adminPage.navigateToPostsPageOld();
         adminPage.getPublishedPostsButton().click();
         cy.deleteAllPosts()
         cy.wait(1000);
 
-        adminPage.navigateToMainPage();
-        adminPage.navigateToMembersPage();
-        cy.createMember('user to delete', 'test@test1.com', 'This is a test member');
-        adminPage.navigateToMembersPage();
+        adminPage.navigateToMainPageOld();
+        adminPage.navigateToMembersPageOld();
+        cy.createMemberOld('user to delete', 'test@test1.com', 'This is a test member');
+        adminPage.navigateToMembersPageOld();
         cy.wait(1000)
-        adminPage.navigateToMembersPage();
-        cy.deleteAllMembers();
+        adminPage.navigateToMembersPageOld();
+        cy.deleteAllMembersOld();
         cy.wait(1000);
     })
 
 
     it('4. Despues de hacer Login, quiero Eliminar un Miembro existente y Crear un nuevo Post y Editar un Post existente y espero que se valide la lista de miebros vacia y no arroje excepciones y los pasos se terminen', () => {
         cy.wait(1000)
-        adminPage.navigateToMembersPage();
+        adminPage.navigateToMembersPageOld();
         memberPage.getMembersList().should('not.exist');
         cy.screenshot();
 
-        adminPage.getNewPostButton().click();
+        adminPage.navigateToPostsPageOld();
+        adminPage.getNewPostButtonOld().click();
         cy.wait(1000)
-        cy.createPost('My first post', 'This is my first post');
+        cy.createPostOld('My first post', 'This is my first post');
 
-        adminPage.navigateToPostsPage();
+        adminPage.navigateToPostsPageOld();
         adminPage.getPublishedPostsButton().click();
         cy.wait(1000)
         publishedPostsPage.getAllPostTitles().contains('My first post').should('exist');
         cy.screenshot();
 
-
-        cy.editPost('My first post', 'My first post edited', 'This is my first post edited');
+        adminPage.navigateToPostsPageOld();
+        cy.editPostOld('My first post', 'My first post edited', 'This is my first post edited');
         cy.wait(500)
-        adminPage.navigateToPostsPage();
+        adminPage.navigateToPostsPageOld();
         adminPage.getPublishedPostsButton().click();
         publishedPostsPage.getAllPostTitles().contains('My first post edited').should('exist');
         cy.screenshot();
