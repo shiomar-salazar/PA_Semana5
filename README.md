@@ -81,5 +81,15 @@ Ruta con los reportes de VRT de los escenarios escogidos:
 - https://github.com/shiomar-salazar/PA_Semana5/tree/main/Cypress/resemble_results/results
 
 ### Kraken
+
+> Para Kraken utilizamos la version 3.42 de ghost como version Vieja y como version Nueva Ghost 5.22.9, dado que la funcionalidad Miembros No existe en la version 3.42 se omitieron escenarios de prueba comparativos usando escenarios que incluyeran dicha funcionalidad, remitiendonos a los escenarios relacionados con Post
+
 #### Escenarios ejecutados en Kraken para las pruebas VRT
 
+| #  | Escenario |
+|----|-----------|
+|  5 | Despues de hacer Login, quiero Crear un nuevo Post y Eliminar un Post existente y Crear un nuevo Post y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+|  6 | Despues de hacer Login, quiero Crear un nuevo Post y Crear un nuevo Post y Eliminar un Post existente y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+|  8 | Despues de hacer Login, quiero Crear un nuevo Post y Editar un Post existente y Crear un nuevo Post y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+| 15 | Despues de hacer Login, quiero Crear un nuevo Post y Crear un nuevo Post y Crear un nuevo Post y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+| 16 | Despues de hacer Login, quiero Crear un nuevo Post y Eliminar un Post existente y Editar un Post existente y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
