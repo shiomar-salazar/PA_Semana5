@@ -14,7 +14,6 @@ xcopy ..\results\screenshots\ghostOld\escenario04.js\ .\results_copy\screenshots
 xcopy ..\results\screenshots\ghostOld\escenario15.js\ .\results_copy\screenshots\ghostOld\escenario15.js\ /E /H /C /I
 xcopy ..\results\screenshots\ghostOld\escenario16.js\ .\results_copy\screenshots\ghostOld\escenario16.js\ /E /H /C /I
 
-
-rem node index.js
+node index.js
 
 PAUSE
