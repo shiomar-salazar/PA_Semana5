@@ -35,7 +35,7 @@ describe('Ghost tests', () => {
     })
 
 
-    it('user create a new post and invite a new memver', () => {
+    it('user create a new post and invite a new member', () => {
         adminPage.getNewPostButtonOld().click();
         cy.wait(1000)
         cy.createPostOld('My first post', 'This is my first post');
@@ -45,12 +45,9 @@ describe('Ghost tests', () => {
         cy.wait(1000)
 
         publishedPostsPage.getAllPostTitles().contains('My first post').should('exist');
-        cy.screenshot();
         cy.wait(1000)
 
-
         adminPage.navigateToMembersPageOld();
-        
         
         cy.createMemberOld('John Doe', 'test@test.com', 'This is a test member');
         cy.wait(1000)
@@ -58,7 +55,6 @@ describe('Ghost tests', () => {
         cy.wait(1000)
 
         memberPage.getMembersList().contains('John Doe').should('exist');
-        cy.screenshot();
     });
 });
 

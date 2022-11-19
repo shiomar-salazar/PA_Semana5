@@ -50,7 +50,6 @@ describe('Ghost Old tests', () => {
         adminPage.navigateToPostsPageOld();
         adminPage.getPublishedPostsButton().click();
         publishedPostsPage.getAllPostTitles().should('not.exist')
-        cy.screenshot();
     });
 });
 

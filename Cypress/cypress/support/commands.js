@@ -43,6 +43,7 @@ Cypress.Commands.add("login", (email, password) => {
     loginPage.getEmailInput().type(email);
     loginPage.getPasswordInput().type(password);
     loginPage.getLoginButton().click();
+    cy.screenshot();
 });
 
 
@@ -52,6 +53,7 @@ Cypress.Commands.add("createPost", (title, content) => {
     postPage.getPublishPostButton().click();
     postPage.getContinueButtonModal().click();
     postPage.getConfirmPublishButtonModal().click();
+    cy.screenshot();
 });
 
 
@@ -61,6 +63,7 @@ Cypress.Commands.add("createMember", (name, email, note) => {
     memberDetailPage.getMemberEmailInput().type(email);
     memberDetailPage.getNoteInput().type(note);
     memberDetailPage.getSaveButton().click();
+    cy.screenshot();
 });
 
 
@@ -69,6 +72,7 @@ Cypress.Commands.add("deleteMember", (name) => {
     memberDetailPage.getDropdownButton().click();
     memberDetailPage.getDeleteButton().click();
     modalPage.getConfirmDeleteButton().click();
+    cy.screenshot();
 });
 
 Cypress.Commands.add("editPost", (title, newTitle, content) => {
@@ -76,6 +80,7 @@ Cypress.Commands.add("editPost", (title, newTitle, content) => {
     postPage.getPostTitleInput().clear().type(newTitle);
     postPage.getPostContentInput().clear().type(content);
     postPage.getUpdatePostButton().click();
+    cy.screenshot();
 });
 
 Cypress.Commands.add("deletePost", (title) => {
@@ -83,6 +88,7 @@ Cypress.Commands.add("deletePost", (title) => {
     postPage.getSideMenuButton().click();
     postPage.getSideMenuDeleteButton().click();
     modalPage.getConfirmDeleteButton().click();
+    cy.screenshot();
 });
 
 
@@ -90,6 +96,7 @@ Cypress.Commands.add("deleteAllPosts", () => {
     publishedPostsPage.getAllPostsTitleText().each(($el, index, $list) => {
         cy.deletePost($el.text().trim());
     });
+    cy.screenshot();
 });
 
 
@@ -97,6 +104,7 @@ Cypress.Commands.add("deleteAllMembers", () => {
     memberPage.getAllMembersListNames().each(($el, index, $list) => {
         cy.deleteMember($el.text().trim());
     });
+    cy.screenshot();
 });
 
 

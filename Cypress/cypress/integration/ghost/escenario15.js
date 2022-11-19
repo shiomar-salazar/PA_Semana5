@@ -58,6 +58,5 @@ describe('Ghost tests', () => {
         publishedPostsPage.getAllPostTitles().contains('post editado').should('exist');
         publishedPostsPage.getAllPostTitles().contains('My first of 3 posts').should('exist');
         publishedPostsPage.getAllPostTitles().contains('My second of 3 posts').should('exist');
-        cy.screenshot();
     })
 })

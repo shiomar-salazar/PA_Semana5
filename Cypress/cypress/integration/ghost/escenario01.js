@@ -34,7 +34,7 @@ describe('Ghost tests', () => {
     })
 
 
-    it('user create a new post and invite a new memver', () => {
+    it('user create a new post and invite a new member', () => {
         adminPage.getNewPostButton().click();
         cy.wait(1000)
         cy.createPost('My first post', 'This is my first post');
@@ -43,23 +43,16 @@ describe('Ghost tests', () => {
         adminPage.getPublishedPostsButton().click();
         cy.wait(1000)
 
-        publishedPostsPage.getFirstPostTitle().should(($title) => {
-            expect($title).to.contain('My first post');
-        })
-        cy.screenshot();
+        publishedPostsPage.getAllPostTitles().contains('My first post').should('exist');
+        cy.wait(1000)
 
         adminPage.navigateToMembersPage();
-        
         
         cy.createMember('John Doe', 'test@test.com', 'This is a test member');
+        cy.wait(1000)
         adminPage.navigateToMembersPage();
         cy.wait(1000)
-        cy.reload();
 
-        
-        memberPage.getFirstMemberName().should(($name) => {
-            expect($name).to.contain('John Doe');
-        })
-        cy.screenshot();
+        memberPage.getMembersList().contains('John Doe').should('exist');
     });
 });

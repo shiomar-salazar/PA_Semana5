@@ -44,9 +44,8 @@ describe('Ghost tests', () => {
         cy.wait(1000)
         adminPage.navigateToMembersPageOld();
         memberPage.getMembersList().should('not.exist');
-        cy.screenshot();
 
-        adminPage.navigateToPostsPageOld();
+        adminPage.navigateToMainPageOld();
         adminPage.getNewPostButtonOld().click();
         cy.wait(1000)
         cy.createPostOld('My first post', 'This is my first post');
@@ -55,7 +54,6 @@ describe('Ghost tests', () => {
         adminPage.getPublishedPostsButton().click();
         cy.wait(1000)
         publishedPostsPage.getAllPostTitles().contains('My first post').should('exist');
-        cy.screenshot();
 
         adminPage.navigateToPostsPageOld();
         cy.editPostOld('My first post', 'My first post edited', 'This is my first post edited');
@@ -63,6 +61,5 @@ describe('Ghost tests', () => {
         adminPage.navigateToPostsPageOld();
         adminPage.getPublishedPostsButton().click();
         publishedPostsPage.getAllPostTitles().contains('My first post edited').should('exist');
-        cy.screenshot();
     });
 });

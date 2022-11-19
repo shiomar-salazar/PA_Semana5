@@ -36,12 +36,10 @@ describe('Ghost tests', () => {
         cy.wait(1000)
         adminPage.navigateToMembersPage();
         memberPage.getMembersList().should('not.exist');
-        cy.screenshot();
 
 
         adminPage.navigateToPostsPage();
         adminPage.getPublishedPostsButton().click();
         publishedPostsPage.getAllPostTitles().should('not.exist')
-        cy.screenshot();
     });
 });

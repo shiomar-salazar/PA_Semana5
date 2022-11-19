@@ -6,6 +6,8 @@
   "scripts": {
     "test": "run test",
     "cy:run": "cypress run",
+    "cy:runGhost": "cypress run --spec cypress/integration/ghost/**/*.js",
+    "cy:runGhostOld": "cypress run --spec cypress/integration/ghostOld/**/*.js",
     "cy:open": "cypress open",
     "cypress:open": "cypress open"
   },

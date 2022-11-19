@@ -48,6 +48,5 @@ describe('Ghost tests', () => {
         adminPage.navigateToPostsPage();
         adminPage.getPublishedPostsButton().click();
         publishedPostsPage.getAllPostTitles().should('not.exist')
-        cy.screenshot();
     })
 })
