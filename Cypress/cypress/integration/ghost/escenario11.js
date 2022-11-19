@@ -12,15 +12,6 @@ describe('Ghost tests', () => {
         cy.screenshot();
         cy.login(Cypress.env('username'), Cypress.env('password'));
         cy.wait(1000);
-        /* Clean enviroment */
-        adminPage.navigateToMembersPage();
-        cy.deleteAllMembers();
-        cy.wait(1000);
-
-        adminPage.navigateToPostsPage();
-        adminPage.getPublishedPostsButton().click();
-        cy.deleteAllPosts()
-        cy.wait(1000);
     })
 
     afterEach(() => {

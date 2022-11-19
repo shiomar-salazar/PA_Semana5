@@ -36,12 +36,12 @@ describe('Ghost tests', () => {
         /* And I delete an existing post */
         adminPage.navigateToPostsPage();
         cy.screenshot();
-        publishedPostsPage.getPublishedPosts().should('not.exist');
+        publishedPostsPage.getAllPostTitles().should('not.exist')
 
         /* And I delete and Existing Post */
         adminPage.navigateToPostsPage();
         cy.screenshot();
-        publishedPostsPage.getPublishedPosts().should('not.exist');
+        publishedPostsPage.getAllPostTitles().should('not.exist')
 
         /* Then I expect to still see the new member added */
         adminPage.navigateToMembersPage();
