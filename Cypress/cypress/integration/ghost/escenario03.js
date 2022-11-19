@@ -9,6 +9,7 @@ describe('Ghost tests', () => {
    
     beforeEach(() => {
         cy.visit('http://localhost:2368/ghost')
+        cy.screenshot();
 
         cy.login(Cypress.env('username'), Cypress.env('password'));
         cy.wait(1000);
@@ -31,27 +32,38 @@ describe('Ghost tests', () => {
     it('3. Despues de hacer Login, quiero Agregar un nuevo Miembro y Editar un Post existente y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente', () => {
         adminPage.navigateToMembersPage();
         cy.wait(1000)
+        cy.screenshot();
         cy.createMember('test 2', 'test2@test.com', 'This is a test member 2');
+        cy.screenshot();
         adminPage.navigateToMembersPage();
         cy.wait(1000)
+        cy.screenshot();
         cy.reload();
 
         memberPage.getMembersList().contains('test 2').should('exist');
 
         adminPage.navigateToPostsPage();
+        cy.screenshot();
         adminPage.getPublishedPostsButton().click();
         cy.wait(1000)
+        cy.screenshot();
 
         cy.editPost('post to update', 'post editado', 'This is my first post edited');
         cy.wait(500)
+        cy.screenshot();
         adminPage.navigateToPostsPage();
+        cy.screenshot();
         adminPage.getPublishedPostsButton().click();
+        cy.screenshot();
         publishedPostsPage.getAllPostTitles().contains('post editado').should('exist');
 
         cy.deletePost('post editado');
         cy.wait(1000)
+        cy.screenshot();
         adminPage.navigateToPostsPage();
+        cy.screenshot();
         adminPage.getPublishedPostsButton().click();
+        cy.screenshot();
         publishedPostsPage.getAllPostTitles().should('not.exist')
     });
 });

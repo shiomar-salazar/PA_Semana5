@@ -9,6 +9,7 @@ describe('Ghost tests', () => {
    
     beforeEach(() => {
         cy.visit('http://localhost:2368/ghost')
+        cy.screenshot();
 
         cy.login(Cypress.env('username'), Cypress.env('password'));
         cy.wait(1000);
@@ -34,27 +35,38 @@ describe('Ghost tests', () => {
 
     it('9. Despues de hacer Login, quiero Crear un nuevo Post y Agregar un nuevo Miembro y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente', () => {
         adminPage.navigateToMainPage();
+        cy.screenshot();
         adminPage.getNewPostButton().click();
         cy.wait(1000)
+        cy.screenshot();
         cy.createPost('My ninth post', 'This is my ninth post');
         cy.wait(1000)
+        cy.screenshot();
         adminPage.navigateToMembersPage();
         cy.wait(1000)
+        cy.screenshot();
         cy.createMember('test 5', 'test5@test.com', 'This is a test member 5');
         cy.wait(1000)
+        cy.screenshot();
         adminPage.navigateToMembersPage();
         cy.wait(1000)
+        cy.screenshot();
 
         memberPage.getMembersList().contains('test 5').should('exist');
 
         adminPage.navigateToPostsPage();
+        cy.screenshot();
         adminPage.getPublishedPostsButton().click();
         cy.wait(1000)
+        cy.screenshot();
 
         cy.deletePost('My ninth post');
         cy.wait(1000)
+        cy.screenshot();
         adminPage.navigateToPostsPage();
+        cy.screenshot();
         adminPage.getPublishedPostsButton().click();
+        cy.screenshot();
         publishedPostsPage.getAllPostTitles().should('not.exist')
     });
 });
