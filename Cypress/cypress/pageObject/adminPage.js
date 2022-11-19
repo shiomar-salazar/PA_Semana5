@@ -4,7 +4,7 @@ export class AdminPage {
     }
 
     navigateToMainPageOld() {
-        cy.visit('http://localhost:2368/ghost/#/dashboard');
+        cy.visit('http://localhost:3002/ghost/#/dashboard');
     }
 
     getNewPostButton() {
@@ -20,7 +20,7 @@ export class AdminPage {
     }
 
     navigateToMembersPageOld() {
-        cy.visit('http://localhost:2368/ghost/#/members');
+        cy.visit('http://localhost:3002/ghost/#/members');
     }
     
 
@@ -29,7 +29,7 @@ export class AdminPage {
     }
 
     navigateToPostsPageOld() {
-        cy.visit('http://localhost:2368/ghost/#/posts');
+        cy.visit('http://localhost:3002/ghost/#/posts');
     }
 
     getPublishedPostsButton() {
