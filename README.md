@@ -55,6 +55,12 @@ Se considera que todos los escenarios inician con un SetUp clean:
 | 20 | Despues de hacer Login, quiero Editar un Post existente y Agregar un nuevo Miembro y Editar un Post existente y Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente |
 
 ## Semana 6
+
+Para las diferencias visuales entre las versiones de Ghost: https://asolerf.atlassian.net/jira/software/projects/PAU/boards/1
+- https://asolerf.atlassian.net/jira/software/projects/PAU/boards/1?selectedIssue=PAU-16
+- https://asolerf.atlassian.net/jira/software/projects/PAU/boards/1?selectedIssue=PAU-17
+- https://asolerf.atlassian.net/jira/software/projects/PAU/boards/1?selectedIssue=PAU-18
+
 ### Cypress
 
 > Por problemas con la version 3.42 de ghost y cypress, se uso como version Vieja Ghost 4.44 y como version Nueva Ghost 5.18.
