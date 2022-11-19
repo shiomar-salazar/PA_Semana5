@@ -11,11 +11,14 @@ async function executeTest() {
     for (let i = 0; i < scensCount; i++) {
       for (let j = 1; j < stepsCount[i]+1; j++) {
 
-        let scenName = `escenario_${scensNumber[i]}_step_${j}`;
-        let urlBeforeScreenshot = `./result_copy/screenshots/ghostOld/escenario${scensNumber[i]}.js/screenshot_${j}.png`;
-        let urlAfterScreenshot = `./result_copy/screenshots/ghost/escenario${scensNumber[i]}.js/screenshot_${j}.png`;
-        let urlCompareScreenshot = `./results/escenario${scensNumber[i]}.js/compare-${scenName}.png`;
+        let scenName = `esc-${scensNumber[i]}-ss-${j}`;
+        let urlBeforeScreenshot = `./results_copy/screenshots/ghostOld/escenario${scensNumber[i]}.js/screenshot_${j}.png`;
+        let urlAfterScreenshot = `./results_copy/screenshots/ghost/escenario${scensNumber[i]}.js/screenshot_${j}.png`;
+        let urlCompareScreenshot = `./results/escenario${scensNumber[i]}/compare-${scenName}.png`;
 
+        let urlBefore = `../results_copy/screenshots/ghostOld/escenario${scensNumber[i]}.js/screenshot_${j}.png`;
+        let urlAfter = `../results_copy/screenshots/ghost/escenario${scensNumber[i]}.js/screenshot_${j}.png`;
+        let urlCompare = `./escenario${scensNumber[i]}/compare-${scenName}.png`;
 
         if (fs.existsSync(urlBeforeScreenshot) && fs.existsSync(urlAfterScreenshot)) {
           const data = await compareImages(
@@ -26,6 +29,9 @@ async function executeTest() {
           resultInfo.push({
             scen: scensNumber[i],
             step: j,
+            urlBefore,
+            urlAfter,
+            urlCompare,
             isSameDimensions: data.isSameDimensions,
             dimensionDifference: data.dimensionDifference,
             rawMisMatchPercentage: data.rawMisMatchPercentage,
@@ -33,7 +39,7 @@ async function executeTest() {
             diffBounds: data.diffBounds,
             analysisTime: data.analysisTime
           });
-          fs.writeFileSync(urlCompareScreenshot, data.getBuffer());
+          fs.writeFileSync(urlCompareScreenshot, data.getBuffer(),{flag: 'w+'});
         }
       }
   }
@@ -43,7 +49,7 @@ async function executeTest() {
 
   console.log('------------------------------------------------------------------------------------')
   console.log("Execution finished. Check the report under the results folder")
-  return results;
+  return resultInfo;
 }
 
 (async () => console.log(await executeTest()))();
@@ -56,18 +62,18 @@ function scen(info) {
     </div>
     <div class="imgline">
       <div class="imgcontainer">
-        <span class="imgname">v3.3.0</span>
-        <img class="img2" src="${info.urlBeforeScreenshot}" id="refImage" label="v3.3.0">
+        <span class="imgname">v4.44.0</span>
+        <img class="img2" src="${info.urlBefore}" id="refImage" label="v4.44.0">
       </div>
       <div class="imgcontainer">
-        <span class="imgname">v3.42.5</span>
-        <img class="img2" src="${info.urlAfterScreenshot}" id="testImage" label="v3.42.5">
+        <span class="imgname">v5.18</span>
+        <img class="img2" src="${info.urlAfter}" id="testImage" label="v5.18">
       </div>
     </div>
     <div class="imgline">
       <div class="imgcontainer">
         <span class="imgname">Diff</span>
-        <img class="imgfull" src="${info.urlCompareScreenshot}" id="diffImage" label="Diff">
+        <img class="imgfull" src="${info.urlCompare}" id="diffImage" label="Diff">
       </div>
     </div>
   </div>`
