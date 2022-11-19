@@ -1,5 +1,4 @@
 {
-    "url":"/Users/andres/Documents/programacion/maestria/pruebas_automatizadas/semana_5/PA_Semana5/Cypress/results/screenshots",
     "browsers":["chromium"],
     "options":{
         "output": {
@@ -19,6 +18,6 @@
     "viewportHeight":600, 
     "viewportWidth":800,
     
-    "beforeImageUrl": "./results_copy/screenshots/ghost/escenario04.js/Ghost tests -- 4. Despues de hacer Login, quiero Eliminar un Miembro existente y Crear un nuevo Post y Editar un Post existente y espero que se valide la lista de miebros vacia y no arroje excepciones y los pasos se terminen.png",
-    "afterImageUrl": "./results_copy/screenshots/ghostOld/escenario04.js/Ghost tests -- 4. Despues de hacer Login, quiero Eliminar un Miembro existente y Crear un nuevo Post y Editar un Post existente y espero que se valide la lista de miebros vacia y no arroje excepciones y los pasos se terminen.png"
+    "beforeImageUrl": "./results_copy/screenshots/ghost/escenario16.js/Ghost tests -- 16. Despues de hacer Login, quiero Crear un nuevo Post y Eliminar un Post existente y Editar un Post existente y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente.png",
+    "afterImageUrl": "./results_copy/screenshots/ghostOld/escenario16.js/Ghost Old tests -- 16. Despues de hacer Login, quiero Crear un nuevo Post y Eliminar un Post existente y Editar un Post existente y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente.png"
 }
