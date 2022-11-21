@@ -1,7 +1,8 @@
 pasos para poder ejecutar Backstop  version node v16.18.0, 
 
 se debe ejecutar las pruebas con kraken y dejar los archivos captura en la ruta 
-backstop_data/images/
+backstop_data/images/Ghost_342/**nombre escenario*/screenshots/
+backstop_data/images/Ghost_522/**nombre escenario*/screenshots/
 
 1. en el directorio raiz Backstopjs se debe ejecutra el comando  "npm i --ignore-script"
 2. en la linea 59 (let args1 ={"p":"public/ghost/escenario_S8","comando":comando};) se debe editar el argumento de la funcion para idicar el escenario
