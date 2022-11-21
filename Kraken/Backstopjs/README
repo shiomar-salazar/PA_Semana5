@@ -4,6 +4,8 @@ se debe ejecutar las pruebas con kraken y dejar los archivos captura en la ruta
 backstop_data/images/Ghost_342/**nombre escenario*/screenshots/
 backstop_data/images/Ghost_522/**nombre escenario*/screenshots/
 
+BackstopJS se usa en una instalacion local.
+
 1. en el directorio raiz Backstopjs se debe ejecutra el comando  "npm i --ignore-script"
 2. en la linea 59 (let args1 ={"p":"public/ghost/escenario_S8","comando":comando};) se debe editar el argumento de la funcion para idicar el escenario
 solo se debe cambiar  el texto "escenario_S8" por algun otro nombre de escenario ejemplo  (let args1 ={"p":"public/ghost/escenario_S15","comando":comando};)
