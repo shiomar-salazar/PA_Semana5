@@ -1,0 +1,22 @@
+{
+  "name": "backstopjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "backstopjs": "^6.1.4",
+    "koa": "^2.13.4",
+    "koa-serve": "^0.1.7",
+    "lodash": "^4.17.21",
+    "yargs": "^17.6.2"
+  },
+  "description": "",
+  "devDependencies": {
+    
+  }
+}
