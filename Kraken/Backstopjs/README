@@ -11,4 +11,9 @@ solo se debe cambiar  el texto "escenario_S8" por algun otro nombre de escenario
 4. luego se ejecuta  "node  index.js --test"
 5. el reporte debe cargarse en el navegador por defecto.
 
+en la carpeta quedan los reportes de las pruebas
+backstop_data/public/ghost/  y dentro de  esta esta cada escenario qye corran, ejemplo
+backstop_data/public/ghost/escenario_S5/html_report/index.html
+backstop_data/public/ghost/escenario_S8/html_report/index.html
+y asi con cada escenaria que se ejecute
 
