@@ -95,9 +95,11 @@ Ruta con los reportes de VRT de los escenarios escogidos:
 | 16 | Despues de hacer Login, quiero Crear un nuevo Post y Eliminar un Post existente y Editar un Post existente y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
 
 ## Semana 7
-
 - Version de Ghost: 5.18
 - Herramienta escogida: Cypress
+
+Para las incidencias encontradas de Ghost: https://asolerf.atlassian.net/jira/software/projects/PAU/boards/1
+- https://asolerf.atlassian.net/browse/PAU-19
 
 | #  | Escenario Escogido | Funcionalidad a probar |
 |----|---------------------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -129,3 +131,5 @@ Tipos de Datos Generados:
 Desgloce de Escenarios de la entrega
 - Caracteristicas a Probar x Estrategias x Tipos:
   - 6 x 3 x 7 = 126
+  
+
