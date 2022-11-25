@@ -7,6 +7,10 @@ export class PagesPage {
         return cy.get('ol.pages-list > li');
     }
 
+    getNoPageArea() {
+        return cy.get('li.no-posts-box  > div');
+    }
+
     getAllPagesTitleText() {
         return cy.get('ol.pages-list > li > a > h3');
     }

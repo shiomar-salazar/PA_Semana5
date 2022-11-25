@@ -24,6 +24,10 @@ export class TagPage {
         return cy.get('ol.tags-list  > li');
     }
 
+    getNoTagsArea() {
+        return cy.get('li.no-posts-box  > div');
+    }
+
     getAllTagsTitleText() {
         return cy.get('ol.tags-list > li > a > h3');
     }
