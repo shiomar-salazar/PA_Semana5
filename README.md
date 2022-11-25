@@ -131,5 +131,6 @@ Tipos de Datos Generados:
 Desgloce de Escenarios de la entrega
 - Caracteristicas a Probar x Estrategias x Tipos:
   - 6 x 3 x 7 = 126
+- Enlace al archivo de excel: https://github.com/shiomar-salazar/PA_Semana5/blob/main/Cypress/Summary_Semana7.xlsx
   
 
