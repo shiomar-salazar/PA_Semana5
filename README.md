@@ -114,15 +114,16 @@ Estrategias de Generacion de Datos:
 | Escenario aleatorio    | 40                     |
 
 Tipos de Datos Generados:
-| Tipos de Datos                | Cantidad de Excenarios por |
-|-------------------------------|----------------------------|
-| Datos Validos                 | 1                          |
-| Datos Invalidos Formato       | 1                          |
-| Datos Frontera Superior       | 1                          |
-| Datos Frontera Inferior       | 1                          |
-| Campos Vacios                 | 1                          |
-| Datos Repetidos o Equivocados | 1                          |
+| Tipos de Datos           | Cantidad de Excenarios por |
+|--------------------------|----------------------------|
+| Datos Validos            | 1                          |
+| Datos Invalidos Formato  | 1                          |
+| Datos Frontera Superior  | 1                          |
+| Datos Frontera Inferior  | 1                          |
+| Campos Vacios            | 1                          |
+| Datos Equivocados        | 1                          |
+| Datos Repetidos          | 1                          |
 
 Desgloce de Escenarios de la entrega
 - Caracteristicas a Probar x Estrategias x Tipos:
-  - 6 x 3 x 6 = 108
+  - 6 x 3 x 7 = 126
