@@ -99,8 +99,8 @@ Ruta con los reportes de VRT de los escenarios escogidos:
 - Version de Ghost: 5.18
 - Herramienta escogida: Cypress
 
-| #  | Escenario Escogido                                                                                                                                   | Funcionalidad a probar |
-|----|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| #  | Escenario Escogido | Funcionalidad a probar |
+|----|---------------------------------------------|---------------------------------------------------------------------------------------------------------|
 |  0 | Quiero Hacer LogIn y espero que todos los pasos se puedan ejecutar correctamente | LogIn |
 |  1 | Despues de hacer Login exitoso, quiero Agregar un nuevo Miembro y despues Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente  |Agregar un nuevo Miembro | 
 |  5 | Despues de hacer Login exitoso, quiero Crear un nuevo Post y Eliminar un Post existente y Crear un nuevo Post y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente | Editar un Post existente |
