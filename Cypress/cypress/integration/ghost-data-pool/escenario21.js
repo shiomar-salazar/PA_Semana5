@@ -17,6 +17,12 @@ const escenario21 = {
       descripcion: "Descripcion valida",
       error: false,
     },
+    datos_formato_invalido: {
+      name: ")(!@#$",
+      slug: 'slug',
+      descripcion: "Descripcion valida",
+      error: false,
+    },
     datos_frontera_superior: {
       name: "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta)",
       slug: "slug",
@@ -35,6 +41,13 @@ const escenario21 = {
       descripcion: "Descripcion valida",
       error: true,
     },
+    datos_equivocados: {
+      name: "|||||",
+      slug: "slug2",
+      descripcion: "Descripcion valida",
+      error: false,
+
+    },
     datos_repetidos: {
       name: "nombre valido",
       slug: "slug",
@@ -45,6 +58,18 @@ const escenario21 = {
   aleatorio_dinámico: {
     datos_validos: {
       name: faker.lorem.word(),
+      slug: faker.lorem.slug(),
+      descripcion: faker.lorem.paragraph(3),
+      error: false,
+    },
+    datos_formato_invalido: {
+      name: faker.internet.ip(),
+      slug: faker.lorem.slug(),
+      descripcion: faker.lorem.paragraph(3),
+      error: false,
+    },
+    datos_frontera_inferior: {
+      name: faker.lorem.word(2),
       slug: faker.lorem.slug(),
       descripcion: faker.lorem.paragraph(3),
       error: false,
@@ -61,6 +86,13 @@ const escenario21 = {
       descripcion: faker.lorem.paragraph(3),
       error: true,
     },
+    datos_equivocados: {
+      name: faker.internet.emoji(),
+      slug: faker.lorem.slug(),
+      descripcion: faker.lorem.paragraph(3),
+      error: false,
+
+    },
     datos_repetidos: {
       name: faker.lorem.word(),
       slug: faker.lorem.slug(),
@@ -75,17 +107,36 @@ const escenario21 = {
       descripcion: faker.lorem.paragraph(3),
       error: false,
     },
+    datos_formato_invalido: {
+      name: faker.internet.ip(),
+      slug: faker.lorem.slug(),
+      descripcion: faker.lorem.paragraph(3),
+      error: false,
+    },
     datos_frontera_superior: {
       name: faker.lorem.paragraph(7),
       slug: faker.lorem.slug(),
       descripcion: faker.lorem.paragraph(3),
       error: true,
     },
+    datos_frontera_inferior: {
+      name: faker.lorem.word(2),
+      slug: faker.lorem.slug(),
+      descripcion: faker.lorem.paragraph(3),
+      error: false,
+    },
     campos_vacios: {
       name: '{backspace}',
       slug: faker.lorem.slug(),
       descripcion: faker.lorem.paragraph(3),
       error: true,
+    },
+    datos_equivocados: {
+      name: faker.internet.emoji(),
+      slug: faker.lorem.slug(),
+      descripcion: faker.lorem.paragraph(3),
+      error: false,
+
     },
     datos_repetidos: {
       name: faker.name.firstName(),
@@ -111,6 +162,7 @@ for (let escenario in escenario21) {
 
         /* When I create a new Tag */
         adminPage.navigateToTagPage();
+        cy.wait(1000);
         cy.createTag(data.name, data.slug, data.descripcion);
         cy.wait(1000);
         cy.reload();
