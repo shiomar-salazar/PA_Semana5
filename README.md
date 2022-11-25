@@ -104,7 +104,7 @@ Para las incidencias encontradas de Ghost: https://asolerf.atlassian.net/jira/so
 | #  | Escenario Escogido | Funcionalidad a probar |
 |----|---------------------------------------------|---------------------------------------------------------------------------------------------------------|
 |  0 | Quiero Hacer LogIn y espero que todos los pasos se puedan ejecutar correctamente | LogIn |
-|  1 | Despues de hacer Login exitoso, quiero Agregar un nuevo Miembro y despues Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente  |Agregar un nuevo Miembro | 
+|  1 | Despues de hacer Login exitoso, quiero Agregar un nuevo Miembro y despues Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente  | Crear un Post | 
 |  5 | Despues de hacer Login exitoso, quiero Crear un nuevo Post y Eliminar un Post existente y Crear un nuevo Post y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente | Editar un Post existente |
 | 13 | Despues de hacer Login, quiero Agregar un nuevo Miembro y Eliminar un Miembro existente y Eliminar un Miembro existente y espero que todos los pasos se puedan ejecutar correctamente | Agregar un nuevo Miembro |
 | 21 |  Despues de hacer Login exitoso, quiero Crear un nuevo Tag y despues Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente | Crear un nuevo Tag |
