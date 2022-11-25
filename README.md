@@ -124,4 +124,4 @@ Tipos de Datos Generados:
 
 Desgloce de Escenarios de la entrega
 - Caracteristicas a Probar x Estrategias x Tipos:
-  - 5 x 3 x 8 = 108
+  - 5 x 3 x 8 = 120
