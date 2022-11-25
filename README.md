@@ -93,3 +93,40 @@ Ruta con los reportes de VRT de los escenarios escogidos:
 |  8 | Despues de hacer Login, quiero Crear un nuevo Post y Editar un Post existente y Crear un nuevo Post y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
 | 15 | Despues de hacer Login, quiero Crear un nuevo Post y Crear un nuevo Post y Crear un nuevo Post y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
 | 16 | Despues de hacer Login, quiero Crear un nuevo Post y Eliminar un Post existente y Editar un Post existente y Eliminar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+
+## Semana 7
+
+Version de Ghost: 5.18
+Herramienta escogida: Cypress
+
+| #  | Escenario Escogido                                                                                                                                   |
+|----|------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  1 | Despues de hacer Login, quiero Agregar un nuevo Miembro y despues Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente  |
+|  5 | Despues de hacer Login, quiero Crear un nuevo Post y Eliminar un Post existente y Crear un nuevo Post y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
+
+
+
+Estrategias de Generacion de Datos:
+| Estrategias            | Cantidad de Excenarios |
+|------------------------|------------------------|
+| Pool de datos a-priori | 40                     |
+| Pool de datos (pseudo) aleatorio dinámico | 40 |
+| Escenario aleatorio | 40 |
+
+Tipos de Datos Generados:
+| Tipos de Datos              | Cantidad de Excenarios por |
+|-----------------------------|----------------------------|
+| Datos Validos               | 1                          |
+| Datos Invalidos (Caracteres ecpeciales) | 1              |
+| Datos Invalidos Formato     | 1                          |
+| Datos Frontera Superior     | 1                          |
+| Datos Frontera Inferior     | 1                          |
+| Campos Vacios               | 1                          |
+| Datos Repetidos             | 1                          |
+|              | 1  |
+|              | 1  |
+|              | 1  |
+
+Desgloce de Escenarios de la entrega
+Caracteristicas a Probar x Estrategias x Tipos
+4 x 3 x 10 = 120
