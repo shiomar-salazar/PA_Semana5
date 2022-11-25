@@ -108,11 +108,11 @@ Ruta con los reportes de VRT de los escenarios escogidos:
 | 22 |  Despues de hacer Login exitoso, quiero Crear una nueva Pagina y despues Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente |
 
 Estrategias de Generacion de Datos:
-| Estrategias            | Cantidad de Excenarios |
-|------------------------|------------------------|
-| Pool de datos a-priori | 40                     |
-| Pool de datos (pseudo) aleatorio dinámico | 40  |
-| Escenario aleatorio    | 40                     |
+| Estrategias            | Cantidad de Excenarios | Herramienta |
+|------------------------|------------------------|-------------|
+| Pool de datos a-priori | 40                     | Mockaroo    |
+| Pool de datos (pseudo) aleatorio dinámico | 40  | FakerJS     |
+| Escenario aleatorio    | 40                     | FakerJS     |
 
 Tipos de Datos Generados:
 | Tipos de Datos           | Cantidad de Excenarios por |
