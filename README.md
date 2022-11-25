@@ -96,8 +96,8 @@ Ruta con los reportes de VRT de los escenarios escogidos:
 
 ## Semana 7
 
-Version de Ghost: 5.18
-Herramienta escogida: Cypress
+- Version de Ghost: 5.18
+- Herramienta escogida: Cypress
 
 | #  | Escenario Escogido                                                                                                                                   |
 |----|------------------------------------------------------------------------------------------------------------------------------------------------------|
