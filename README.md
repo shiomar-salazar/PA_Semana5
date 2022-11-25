@@ -104,7 +104,6 @@ Ruta con los reportes de VRT de los escenarios escogidos:
 |  1 | Despues de hacer Login, quiero Agregar un nuevo Miembro y despues Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente  |
 |  5 | Despues de hacer Login, quiero Crear un nuevo Post y Eliminar un Post existente y Crear un nuevo Post y Editar un Post existente y espero que todos los pasos se puedan ejecutar correctamente |
 | 21 |  Despues de hacer Login, quiero Crear un nuevo Tag y despues Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente |
-| 22 |  Despues de hacer Login, quiero Crear una nueva pagina y despues Crear un nuevo Post y espero que todos los pasos se puedan ejecutar correctamente |
 
 Estrategias de Generacion de Datos:
 | Estrategias            | Cantidad de Excenarios |
@@ -118,11 +117,11 @@ Tipos de Datos Generados:
 |-------------------------------|----------------------------|
 | Datos Validos                 | 1                          |
 | Datos Invalidos Formato       | 1                          |
-| Datos Frontera Superior       | 1                          |
-| Datos Frontera Inferior       | 1                          |
+| Datos Frontera Superior       | 2                          |
+| Datos Frontera Inferior       | 2                          |
 | Campos Vacios                 | 1                          |
 | Datos Repetidos o Equivocados | 1                          |
 
 Desgloce de Escenarios de la entrega
 - Caracteristicas a Probar x Estrategias x Tipos:
-  - 6 x 3 x 6 = 108
+  - 5 x 3 x 8 = 108
