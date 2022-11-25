@@ -39,4 +39,8 @@ export class AdminPage {
     getNewPostButtonOld() {
         return cy.get('li > a[href="#/editor/post/"]');
     }
+
+    navigateToPagesPage() {
+        cy.visit('http://localhost:2368/ghost/#/pages');
+    }
 }

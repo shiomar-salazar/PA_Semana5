@@ -164,7 +164,6 @@ for (let escenario in escenario13) {
 
                     let data = escenario13[escenario][datoGenerado];
 
-                    cy.log(data)
                     adminPage.navigateToMembersPage();
                     cy.createMember(data.nombre_miembro, data.correo, data.descripcion);
                     adminPage.navigateToMembersPage();

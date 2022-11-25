@@ -30,6 +30,7 @@ import { MemberDetailPage } from "../pageObject/memberDeailPage";
 import { MemberPage } from "../pageObject/membersPage";
 import { PublishedPostsPage } from "../pageObject/publishedPostsPage";
 import { ModalPage } from "../pageObject/modalPage";
+import { PagesPage } from "../pageObject/pagesPage";
 
 
 const memberPage = new MemberPage();
@@ -38,6 +39,8 @@ const loginPage = new LoginPage();
 const memberDetailPage = new MemberDetailPage();
 const publishedPostsPage = new PublishedPostsPage();
 const modalPage = new ModalPage();
+const pagesPage = new PagesPage();
+
 
 Cypress.Commands.add("login", (email, password) => {
     loginPage.getEmailInput().type(email);
@@ -98,6 +101,34 @@ Cypress.Commands.add("deleteAllMembers", () => {
         cy.deleteMember($el.text().trim());
     });
 });
+
+
+Cypress.Commands.add("createPage", (title, content) => {
+    pagesPage.getNewPageButton().click();
+    pagesPage.getPageTitleInput().type(title);
+    pagesPage.getPageContentInput().type(content);
+    pagesPage.getPublishPageButton().click();
+    postPage.getContinueButtonModal().click();
+    postPage.getConfirmPublishButtonModal().click();
+});
+
+
+Cypress.Commands.add("deletePage", (title) => {
+    pagesPage.getAllPagesTitle().contains(title).click({force: true});
+    pagesPage.getSideMenuButton().click();
+    pagesPage.getSideMenuDeleteButton().click();
+    modalPage.getConfirmDeleteButton().click();
+});
+
+
+Cypress.Commands.add("deleteAllPages", () => {
+    pagesPage.getAllPagesTitleText().each(($el, index, $list) => {
+        cy.deletePage($el.text().trim());
+    });
+});
+
+
+
 
 // OLD GHOST
 Cypress.Commands.add("deleteMemberOld", (name) => {

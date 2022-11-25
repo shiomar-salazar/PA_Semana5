@@ -24,9 +24,6 @@ export class PostPage {
         return cy.get('button.gh-publishmenu-button');
     }
 
-
-   
-
     getConfirmPublishButtonModal() {
         return cy.get('div[class="gh-publish-cta"] > button:first-of-type');
     }
@@ -35,8 +32,6 @@ export class PostPage {
     getConfirmPublishButtonModalOld() {
         return cy.get('div.modal-footer > button:last-of-type');
     }
-
-    
 
     getUpdatePostButton() {
         return cy.get('button.gh-editor-save-trigger.green');
