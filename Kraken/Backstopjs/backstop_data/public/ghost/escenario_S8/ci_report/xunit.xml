@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="BackstopJS" tests="12" failures="12" errors="12" skipped="0">
+    <testcase classname="document" name=" ›› 0">
+      <failure message="Design deviation ›› 0 (document) component"/>
+      <error message="Design deviation ›› 0 (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› 1">
+      <failure message="Design deviation ›› 1 (document) component"/>
+      <error message="Design deviation ›› 1 (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› 10">
+      <failure message="Design deviation ›› 10 (document) component"/>
+      <error message="Design deviation ›› 10 (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› 11">
+      <failure message="Design deviation ›› 11 (document) component"/>
+      <error message="Design deviation ›› 11 (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› 2">
+      <failure message="Design deviation ›› 2 (document) component"/>
+      <error message="Design deviation ›› 2 (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› 3">
+      <failure message="Design deviation ›› 3 (document) component"/>
+      <error message="Design deviation ›› 3 (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› 4">
+      <failure message="Design deviation ›› 4 (document) component"/>
+      <error message="Design deviation ›› 4 (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› 5">
+      <failure message="Design deviation ›› 5 (document) component"/>
+      <error message="Design deviation ›› 5 (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› 6">
+      <failure message="Design deviation ›› 6 (document) component"/>
+      <error message="Design deviation ›› 6 (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› 7">
+      <failure message="Design deviation ›› 7 (document) component"/>
+      <error message="Design deviation ›› 7 (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› 8">
+      <failure message="Design deviation ›› 8 (document) component"/>
+      <error message="Design deviation ›› 8 (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› 9">
+      <failure message="Design deviation ›› 9 (document) component"/>
+      <error message="Design deviation ›› 9 (document) component"/>
+    </testcase>
+  </testsuite>
+</testsuites>

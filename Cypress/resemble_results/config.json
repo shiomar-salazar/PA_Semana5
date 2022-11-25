@@ -1,6 +1,8 @@
 {
-    "url":"/Users/andres/Documents/programacion/maestria/pruebas_automatizadas/semana_5/PA_Semana5/Cypress/results/screenshots",
     "browsers":["chromium"],
+    "scensCount": 5,
+    "scensNumber": [1,2,4,15,16],
+    "stepsCount": [8,4,11,12,12],
     "options":{
         "output": {
             "errorColor": {
@@ -17,8 +19,5 @@
         "ignore": "antialiasing"
     },
     "viewportHeight":600, 
-    "viewportWidth":800,
-    
-    "beforeImageUrl": "./results_copy/screenshots/ghost/escenario04.js/Ghost tests -- 4. Despues de hacer Login, quiero Eliminar un Miembro existente y Crear un nuevo Post y Editar un Post existente y espero que se valide la lista de miebros vacia y no arroje excepciones y los pasos se terminen.png",
-    "afterImageUrl": "./results_copy/screenshots/ghostOld/escenario04.js/Ghost tests -- 4. Despues de hacer Login, quiero Eliminar un Miembro existente y Crear un nuevo Post y Editar un Post existente y espero que se valide la lista de miebros vacia y no arroje excepciones y los pasos se terminen.png"
+    "viewportWidth":800
 }

@@ -1,95 +1,94 @@
-const playwright = require('playwright');
 const compareImages = require("resemblejs/compareImages")
 const config = require("./config.json");
 const fs = require('fs');
 
-const { viewportHeight, viewportWidth, browsers, options } = config;
+const {options, scensNumber, stepsCount, scensCount} = config;
 
-async function executeTest(){
-    if(browsers.length === 0){
-      return;
-    }
-    let resultInfo = {}
-    let datetime = new Date().toISOString().replace(/:/g,".");
-    for(b of browsers){
-        if(!b in ['chromium', 'webkit', 'firefox']){
-            return;
-        }
-        if (!fs.existsSync(`./results/${datetime}`)){
-            fs.mkdirSync(`./results/${datetime}`, { recursive: true });
-        }
+async function executeTest() {
 
-        const data = await compareImages(
-          fs.readFileSync(config.beforeImageUrl),
-          fs.readFileSync(config.afterImageUrl),
-          options
-        );
+  let resultInfo = [];
 
+    for (let i = 0; i < scensCount; i++) {
+      for (let j = 1; j < stepsCount[i]+1; j++) {
 
-        resultInfo[b] = {
+        let scenName = `esc-${scensNumber[i]}-ss-${j}`;
+        let urlBeforeScreenshot = `./results_copy/screenshots/ghostOld/escenario${scensNumber[i]}.js/screenshot_${j}.png`;
+        let urlAfterScreenshot = `./results_copy/screenshots/ghost/escenario${scensNumber[i]}.js/screenshot_${j}.png`;
+        let urlCompareScreenshot = `./results/escenario${scensNumber[i]}/compare-${scenName}.png`;
+
+        let urlBefore = `../results_copy/screenshots/ghostOld/escenario${scensNumber[i]}.js/screenshot_${j}.png`;
+        let urlAfter = `../results_copy/screenshots/ghost/escenario${scensNumber[i]}.js/screenshot_${j}.png`;
+        let urlCompare = `./escenario${scensNumber[i]}/compare-${scenName}.png`;
+
+        if (fs.existsSync(urlBeforeScreenshot) && fs.existsSync(urlAfterScreenshot)) {
+          const data = await compareImages(
+              fs.readFileSync(urlBeforeScreenshot),
+              fs.readFileSync(urlAfterScreenshot),
+              options
+          );
+          resultInfo.push({
+            scen: scensNumber[i],
+            step: j,
+            urlBefore,
+            urlAfter,
+            urlCompare,
             isSameDimensions: data.isSameDimensions,
             dimensionDifference: data.dimensionDifference,
             rawMisMatchPercentage: data.rawMisMatchPercentage,
             misMatchPercentage: data.misMatchPercentage,
             diffBounds: data.diffBounds,
             analysisTime: data.analysisTime
+          });
+          fs.writeFileSync(urlCompareScreenshot, data.getBuffer(),{flag: 'w+'});
         }
-        fs.writeFileSync(`./results/${datetime}/compare-${b}.png`, data.getBuffer());
-
-    }
-
-
-    fs.writeFileSync(`./results/${datetime}/report.html`, createReport(datetime, resultInfo));
-    fs.copyFileSync('./index.css', `./results/${datetime}/index.css`);
-
-    console.log('------------------------------------------------------------------------------------')
-    console.log("Execution finished. Check the report under the results folder")
-    return resultInfo;  
+      }
   }
-(async ()=>console.log(await executeTest()))();
 
+  fs.writeFileSync(`./results/report.html`, createReport(resultInfo));
+  fs.copyFileSync('./index.css', `./results/index.css`);
 
+  console.log('------------------------------------------------------------------------------------')
+  console.log("Execution finished. Check the report under the results folder")
+  return resultInfo;
+}
 
-function browser(b, info){
-    return `<div class=" browser" id="test0">
+(async () => console.log(await executeTest()))();
+
+function scen(info) {
+  return `<div class=" browser" id="test0">
     <div class=" btitle">
-        <h2>Browser: ${b}</h2>
+        <h2>Scen: ${info.scen} Step: ${info.step}</h2>
         <p>Data: ${JSON.stringify(info)}</p>
     </div>
     <div class="imgline">
       <div class="imgcontainer">
-        <span class="imgname">Reference</span>
-        <img class="img2" src="../.${config.beforeImageUrl}" id="refImage" label="Reference">
+        <span class="imgname">v4.44.0</span>
+        <img class="img2" src="${info.urlBefore}" id="refImage" label="v4.44.0">
       </div>
       <div class="imgcontainer">
-        <span class="imgname">Test</span>
-        <img class="img2" src="../.${config.afterImageUrl}" id="testImage" label="Test">
+        <span class="imgname">v5.18</span>
+        <img class="img2" src="${info.urlAfter}" id="testImage" label="v5.18">
       </div>
     </div>
     <div class="imgline">
       <div class="imgcontainer">
         <span class="imgname">Diff</span>
-        <img class="imgfull" src="./compare-${b}.png" id="diffImage" label="Diff">
+        <img class="imgfull" src="${info.urlCompare}" id="diffImage" label="Diff">
       </div>
     </div>
   </div>`
 }
 
-function createReport(datetime, resInfo){
-    return `
+function createReport(results) {
+  return `
     <html>
         <head>
             <title> VRT Report </title>
             <link href="index.css" type="text/css" rel="stylesheet">
         </head>
         <body>
-            <h1>Report for 
-                 <a href="${config.url}"> ${config.url}</a>
-            </h1>
-            <p>Executed: ${datetime}</p>
-            <div id="visualizer">
-                ${config.browsers.map(b=>browser(b, resInfo[b]))}
-            </div>
+            <h1>Report for Ghost v4.44.0 vs v.5.18.0</h1>
+            ${results.map(info => scen(info))}
         </body>
     </html>`
 }
