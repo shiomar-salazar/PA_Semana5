@@ -23,7 +23,6 @@ export class AdminPage {
         cy.visit('http://localhost:3002/ghost/#/members');
     }
     
-
     navigateToPostsPage() {
         cy.visit('http://localhost:2368/ghost/#/posts');
     }
@@ -42,5 +41,10 @@ export class AdminPage {
 
     navigateToPagesPage() {
         cy.visit('http://localhost:2368/ghost/#/pages');
+    }
+
+    navigateToTagPage() {
+        cy.visit('http://localhost:2368/ghost/#/tags');
+
     }
 }

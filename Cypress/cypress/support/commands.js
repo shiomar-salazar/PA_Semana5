@@ -31,7 +31,7 @@ import { MemberPage } from "../pageObject/membersPage";
 import { PublishedPostsPage } from "../pageObject/publishedPostsPage";
 import { ModalPage } from "../pageObject/modalPage";
 import { PagesPage } from "../pageObject/pagesPage";
-
+import { TagPage } from "../pageObject/tagPage";
 
 const memberPage = new MemberPage();
 const postPage = new PostPage();
@@ -40,7 +40,7 @@ const memberDetailPage = new MemberDetailPage();
 const publishedPostsPage = new PublishedPostsPage();
 const modalPage = new ModalPage();
 const pagesPage = new PagesPage();
-
+const tagPage = new TagPage();
 
 Cypress.Commands.add("login", (email, password) => {
     loginPage.getEmailInput().type(email);
@@ -88,20 +88,17 @@ Cypress.Commands.add("deletePost", (title) => {
     modalPage.getConfirmDeleteButton().click();
 });
 
-
 Cypress.Commands.add("deleteAllPosts", () => {
     publishedPostsPage.getAllPostsTitleText().each(($el, index, $list) => {
         cy.deletePost($el.text().trim());
     });
 });
 
-
 Cypress.Commands.add("deleteAllMembers", () => {
     memberPage.getAllMembersListNames().each(($el, index, $list) => {
         cy.deleteMember($el.text().trim());
     });
 });
-
 
 Cypress.Commands.add("createPage", (title, content) => {
     pagesPage.getNewPageButton().click();
@@ -112,7 +109,6 @@ Cypress.Commands.add("createPage", (title, content) => {
     postPage.getConfirmPublishButtonModal().click();
 });
 
-
 Cypress.Commands.add("deletePage", (title) => {
     pagesPage.getAllPagesTitle().contains(title).click({force: true});
     pagesPage.getSideMenuButton().click();
@@ -120,15 +116,31 @@ Cypress.Commands.add("deletePage", (title) => {
     modalPage.getConfirmDeleteButton().click();
 });
 
-
 Cypress.Commands.add("deleteAllPages", () => {
     pagesPage.getAllPagesTitleText().each(($el, index, $list) => {
         cy.deletePage($el.text().trim());
     });
 });
 
+Cypress.Commands.add("createTag", (name, slug, descripcion) => {
+    tagPage.getNewTagButton().click({force: true});
+    tagPage.getTagNameInput().clear().type(name);
+    tagPage.getTagSlugInput().clear().type(slug);
+    tagPage.getTagDscriptonInput().clear().type(descripcion);
+    tagPage.getTagSaveButton().click({force: true});
+});
 
+Cypress.Commands.add("deleteTag", (title) => {
+    tagPage.getAllTagsTitle().contains(title).click({force: true});
+    tagPage.getDeleteTagButton().click({force: true});
+    tagPage.getModalDeleteTag().click({force: true});
+});
 
+Cypress.Commands.add("deleteAllTags", () => {
+    tagPage.getAllTagsTitleText().each(($el, index, $list) => {
+        cy.deleteTag($el.text().trim());
+    });
+});
 
 // OLD GHOST
 Cypress.Commands.add("deleteMemberOld", (name) => {
@@ -141,14 +153,11 @@ Cypress.Commands.add("deleteMemberOld", (name) => {
     modalPage.getConfirmDeleteButton().click();
 });
 
-
 Cypress.Commands.add("deleteAllMembersOld", () => {
     memberPage.getAllMembersListNames().each(($el, index, $list) => {
         cy.deleteMemberOld($el.text().trim());
     });
 });
-
-
 
 Cypress.Commands.add("createMemberOld", (name, email, note) => {
     memberPage.getNewMemberButton().click();
@@ -157,8 +166,6 @@ Cypress.Commands.add("createMemberOld", (name, email, note) => {
     memberDetailPage.getNoteInput().type(note, {force: true});
     memberDetailPage.getSaveButton().click({force: true});
 });
-
-
 
 Cypress.Commands.add("createPostOld", (title, content) => {
     postPage.getPostTitleInput().type(title);
@@ -175,4 +182,3 @@ Cypress.Commands.add("editPostOld", (title, newTitle, content) => {
     postPage.getPublishPostButtonOld().click();
     postPage.getContinueButtonModalOld().click();
 });
-
