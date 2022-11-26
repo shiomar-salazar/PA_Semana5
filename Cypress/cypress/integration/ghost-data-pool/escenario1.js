@@ -7,51 +7,43 @@ import { MemberPage } from "../../pageObject/membersPage";
 const adminPage = new AdminPage();
 const publishedPostsPage = new PublishedPostsPage();
 const memberPage = new MemberPage();
-
 const correoRepetido = faker.internet.exampleEmail();
 
-const escenario13 = {
+const escenario1 = {
     'a_priori': {
         'datos_validos' : 
             {
-                nombre_miembro: 'nombre valido',
-                correo: 'correo@valido.com',
+                titulo: 'nombre valido',
                 descripcion: 'Descripcion valida'
             },
         'datos_formato_invalido' :
             {
-                nombre_miembro: 'nombre valido',
-                correo: 'asdf',
+                titulo: 'nombre valido',
                 descripcion: 'Descripcion valida'
             },
         'datos_frontera_superior':
             {
-                nombre_miembro: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta)',
-                correo: 'correo@valido.com',
+                titulo: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta)',
                 descripcion: 'Descripcion valida'
             },
         'datos_frontera_inferior':
             {
-                nombre_miembro: 'a',
-                correo: 'correo@valido.com',
+                titulo: 'a',
                 descripcion: 'Descripcion valida'
             },
         'campos_vacios':
             {
-                nombre_miembro: '',
-                correo: 'correo@valido.com',
+                titulo: '',
                 descripcion: 'Descripcion valida'
             },
         'datos_equivocados':
             {
-                nombre_miembro: '|||||',
-                correo: 'correovalido.com',
+                titulo: '|||||',
                 descripcion: 'Descripcion valida'
             },
         'datos_repetidos': 
             {
-                nombre_miembro: 'correo@valido.com',
-                correo: 'correo@valido.com',
+                titulo: 'correo@valido.com',
                 descripcion: 'correo@valido.com',
             }
     },
@@ -59,44 +51,37 @@ const escenario13 = {
     'aleatorio_dinámico': {
         'datos_validos' : 
             {
-                nombre_miembro: faker.name.firstName(),
-                correo: faker.internet.exampleEmail(),
+                titulo: faker.name.firstName(),
                 descripcion: 'Descripcion valida'
             },
         'datos_formato_invalido' :
             {
-                nombre_miembro: faker.name.firstName(),
-                correo: 'asdf',
+                titulo: faker.name.firstName(),
                 descripcion: faker.lorem.paragraph(5)
             },
         'datos_frontera_superior':
             {
-                nombre_miembro: faker.lorem.paragraph(5),
-                correo: faker.internet.exampleEmail(),
+                titulo: faker.lorem.paragraph(5),
                 descripcion: 'Descripcion valida'
             },
         'datos_frontera_inferior':
             {
-                nombre_miembro: faker.lorem.word({ strategy: 'shortest' }),
-                correo: faker.internet.exampleEmail(),
+                titulo: faker.lorem.word({ strategy: 'shortest' }),
                 descripcion: 'Descripcion valida'
             },
         'campos_vacios':
             {
-                nombre_miembro: faker.name.firstName(),
-                correo: faker.internet.exampleEmail(),
+                titulo: faker.name.firstName(),
                 descripcion: 'Descripcion valida'
             },
         'datos_equivocados':
             {
-                nombre_miembro: faker.internet.domainName(),
-                correo: faker.internet.exampleEmail(),
+                titulo: faker.internet.domainName(),
                 descripcion: 'Descripcion valida'
             },
         'datos_repetidos': 
             {
-                nombre_miembro: 'correo@valido.com',
-                correo: faker.internet.exampleEmail(),
+                titulo: 'correo@valido.com',
                 descripcion: 'correo@valido.com',
             }
     },
@@ -104,52 +89,46 @@ const escenario13 = {
     'aleatorio': {
         'datos_validos' : 
             {
-                nombre_miembro: faker.name.firstName(),
-                correo: faker.internet.exampleEmail(),
+                titulo: faker.name.firstName(),
                 descripcion: faker.lorem.paragraph(3)
             },
         'datos_formato_invalido' :
             {
-                nombre_miembro: faker.name.firstName(),
-                correo: faker.name.firstName(),
+                titulo: faker.name.firstName(),
                 descripcion: faker.lorem.paragraph(3)
             },
         'datos_frontera_superior':
             {
-                nombre_miembro: faker.lorem.paragraph(7),
-                correo: faker.internet.exampleEmail(),
+                titulo: faker.lorem.paragraph(7),
                 descripcion: faker.lorem.paragraph(3)
             },
         'datos_frontera_inferior':
             {
-                nombre_miembro: faker.lorem.word({ strategy: 'shortest' }),
-                correo: faker.internet.exampleEmail(),
+                titulo: faker.lorem.word({ strategy: 'shortest' }),
                 descripcion: faker.lorem.paragraph(3)
             },
         'campos_vacios':
             {
-                nombre_miembro: faker.name.firstName(),
-                correo: faker.internet.exampleEmail(),
+                titulo: faker.name.firstName(),
                 descripcion: ''
             },
         'datos_equivocados':
             {
-                nombre_miembro: faker.internet.domainName(),
-                correo: faker.internet.exampleEmail(),
+                titulo: faker.internet.domainName(),
                 descripcion: faker.lorem.paragraph(3)
             },
         'datos_repetidos': 
             {
-                nombre_miembro: correoRepetido,
-                correo: correoRepetido,
+                titulo: correoRepetido,
                 descripcion: correoRepetido,
             }
     },
 }
 
+/*  Despues de hacer Login exitoso, quiero Agregar un nuevo Miembro y despues Crear un nuevo Post
+ y espero que todos los pasos se puedan ejecutar correctamente */
 
-
-for (let escenario in escenario13) {
+for (let escenario in escenario1) {
         
         describe('Ghost tests ' + escenario, () => {
             beforeEach(() => {
@@ -159,31 +138,53 @@ for (let escenario in escenario13) {
                 cy.wait(1000);
             })
 
-            for (let datoGenerado in escenario13[escenario]) {
-                it('escenario 13.' + datoGenerado, () => {
+            for (let datoGenerado in escenario1[escenario]) {
+                it('escenario 1.' + datoGenerado, () => {
 
-                    let data = escenario13[escenario][datoGenerado];
+                    let data = escenario1[escenario][datoGenerado];
 
+                    /* When I create a new Member */
                     adminPage.navigateToMembersPage();
-                    cy.createMember(data.nombre_miembro, data.correo, data.descripcion);
+                    cy.createMember("Pablo Pineres", "pablo@gmail.com", "Ingeniero industrial que coordina proyectos de innovacion");
                     adminPage.navigateToMembersPage();
                     cy.wait(1000)
                     cy.reload();
 
-                    /*And I delete a existing member */
+                    /* And I expect to be able to see the Member */
                     adminPage.navigateToMembersPage();
-                    cy.deleteMember(data.nombre_miembro);
-                    cy.wait(1000)
+                    cy.wait(1000);
+                    membersPage.getAllMembersListNames().contains("Pablo Pineres").should("exist");
 
-                    /*And I delete a existing member */
-                    cy.wait(1000)
-                    adminPage.navigateToMembersPage();
-                    memberPage.getMembersList().should('not.exist');
+                    /* And then I create a new Post */
+                    adminPage.navigateToMainPage();
+                    cy.wait(500);
+                    adminPage.getNewPostButton().click();
+                    cy.wait(1000);
+                    cy.createPost(data.titulo, data.descripcion);
+                    cy.wait(500);
 
-                    /* When I expect to not have any members or exceptions */
+                    /* Then I expect to be able to see the post */
+                    adminPage.navigateToPostsPage();
+                    cy.wait(500);
+                    adminPage.getPublishedPostsButton().click();
+                    cy.wait(500);
+                    publishedPostsPage
+                    .getAllPostTitles()
+                    .contains(data.titulo)
+                    .should("exist");
+
+                    /* Clean Up */
                     cy.wait(1000)
                     adminPage.navigateToMembersPage();
-                    memberPage.getMembersList().should('not.exist');
+                    cy.wait(500);
+                    cy.deleteAllMembers();
+                    cy.wait(1000);
+
+                    adminPage.navigateToPostsPage();
+                    adminPage.getPublishedPostsButton().click();
+                    cy.deleteAllPosts();
+                    cy.wait(1000);
+
                 })
         }
     })
