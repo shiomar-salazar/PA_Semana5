@@ -10,6 +10,7 @@ const memberPage = new MemberPage();
 const correoRepetido = faker.internet.exampleEmail();
 
 const escenario0 = {
+
     'a_priori': {
         'datos_validos' : 
             {
