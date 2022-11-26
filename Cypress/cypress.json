@@ -1,7 +1,10 @@
 {  
     "env": {
-        "username": "sucorreo",
-        "password": "supassword",
-        "adminUrl": "http://localhost:2368/ghost"
-    }
+        "username": "a.solerf@uniandes.edu.co",
+        "password": "Uniandes.123",
+        "adminUrl": "http://localhost:2368/ghost",
+        "ghost3url": "http://localhost:3002/ghost"
+    },
+
+    "screenshotsFolder": "./results/screenshots/"
 }

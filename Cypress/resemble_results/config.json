@@ -1,0 +1,23 @@
+{
+    "browsers":["chromium"],
+    "scensCount": 5,
+    "scensNumber": [1,2,4,15,16],
+    "stepsCount": [8,4,11,12,12],
+    "options":{
+        "output": {
+            "errorColor": {
+                "red": 255,
+                "green": 0,
+                "blue": 255
+            },
+            "errorType": "movement",
+            "largeImageThreshold": 1200,
+            "useCrossOrigin": false,
+            "outputDiff": true
+        },
+        "scaleToSameSize": true,
+        "ignore": "antialiasing"
+    },
+    "viewportHeight":600, 
+    "viewportWidth":800
+}

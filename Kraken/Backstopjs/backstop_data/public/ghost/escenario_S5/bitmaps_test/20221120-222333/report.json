@@ -1,0 +1,270 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/publicghostescenario_S5_test_0_0_document_0_default.png",
+        "test": "../bitmaps_test/20221120-222333/publicghostescenario_S5_test_0_0_document_0_default.png",
+        "selector": "document",
+        "fileName": "publicghostescenario_S5_test_0_0_document_0_default.png",
+        "label": "0",
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:8002/0.html",
+        "expect": 0,
+        "viewportLabel": "default",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/publicghostescenario_S5_test_1_0_document_0_default.png",
+        "test": "../bitmaps_test/20221120-222333/publicghostescenario_S5_test_1_0_document_0_default.png",
+        "selector": "document",
+        "fileName": "publicghostescenario_S5_test_1_0_document_0_default.png",
+        "label": "1",
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:8002/1.html",
+        "expect": 0,
+        "viewportLabel": "default",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/publicghostescenario_S5_test_10_0_document_0_default.png",
+        "test": "../bitmaps_test/20221120-222333/publicghostescenario_S5_test_10_0_document_0_default.png",
+        "selector": "document",
+        "fileName": "publicghostescenario_S5_test_10_0_document_0_default.png",
+        "label": "10",
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:8002/10.html",
+        "expect": 0,
+        "viewportLabel": "default",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/publicghostescenario_S5_test_11_0_document_0_default.png",
+        "test": "../bitmaps_test/20221120-222333/publicghostescenario_S5_test_11_0_document_0_default.png",
+        "selector": "document",
+        "fileName": "publicghostescenario_S5_test_11_0_document_0_default.png",
+        "label": "11",
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:8002/11.html",
+        "expect": 0,
+        "viewportLabel": "default",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/publicghostescenario_S5_test_2_0_document_0_default.png",
+        "test": "../bitmaps_test/20221120-222333/publicghostescenario_S5_test_2_0_document_0_default.png",
+        "selector": "document",
+        "fileName": "publicghostescenario_S5_test_2_0_document_0_default.png",
+        "label": "2",
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:8002/2.html",
+        "expect": 0,
+        "viewportLabel": "default",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/publicghostescenario_S5_test_3_0_document_0_default.png",
+        "test": "../bitmaps_test/20221120-222333/publicghostescenario_S5_test_3_0_document_0_default.png",
+        "selector": "document",
+        "fileName": "publicghostescenario_S5_test_3_0_document_0_default.png",
+        "label": "3",
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:8002/3.html",
+        "expect": 0,
+        "viewportLabel": "default",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/publicghostescenario_S5_test_4_0_document_0_default.png",
+        "test": "../bitmaps_test/20221120-222333/publicghostescenario_S5_test_4_0_document_0_default.png",
+        "selector": "document",
+        "fileName": "publicghostescenario_S5_test_4_0_document_0_default.png",
+        "label": "4",
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:8002/4.html",
+        "expect": 0,
+        "viewportLabel": "default",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/publicghostescenario_S5_test_5_0_document_0_default.png",
+        "test": "../bitmaps_test/20221120-222333/publicghostescenario_S5_test_5_0_document_0_default.png",
+        "selector": "document",
+        "fileName": "publicghostescenario_S5_test_5_0_document_0_default.png",
+        "label": "5",
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:8002/5.html",
+        "expect": 0,
+        "viewportLabel": "default",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/publicghostescenario_S5_test_6_0_document_0_default.png",
+        "test": "../bitmaps_test/20221120-222333/publicghostescenario_S5_test_6_0_document_0_default.png",
+        "selector": "document",
+        "fileName": "publicghostescenario_S5_test_6_0_document_0_default.png",
+        "label": "6",
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:8002/6.html",
+        "expect": 0,
+        "viewportLabel": "default",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/publicghostescenario_S5_test_7_0_document_0_default.png",
+        "test": "../bitmaps_test/20221120-222333/publicghostescenario_S5_test_7_0_document_0_default.png",
+        "selector": "document",
+        "fileName": "publicghostescenario_S5_test_7_0_document_0_default.png",
+        "label": "7",
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:8002/7.html",
+        "expect": 0,
+        "viewportLabel": "default",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/publicghostescenario_S5_test_8_0_document_0_default.png",
+        "test": "../bitmaps_test/20221120-222333/publicghostescenario_S5_test_8_0_document_0_default.png",
+        "selector": "document",
+        "fileName": "publicghostescenario_S5_test_8_0_document_0_default.png",
+        "label": "8",
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:8002/8.html",
+        "expect": 0,
+        "viewportLabel": "default",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/publicghostescenario_S5_test_9_0_document_0_default.png",
+        "test": "../bitmaps_test/20221120-222333/publicghostescenario_S5_test_9_0_document_0_default.png",
+        "selector": "document",
+        "fileName": "publicghostescenario_S5_test_9_0_document_0_default.png",
+        "label": "9",
+        "misMatchThreshold": 0.1,
+        "url": "http://localhost:8002/9.html",
+        "expect": 0,
+        "viewportLabel": "default",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    }
+  ],
+  "id": "public/ghost/escenario_S5_test"
+}

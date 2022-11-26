@@ -6,6 +6,8 @@
   "scripts": {
     "test": "run test",
     "cy:run": "cypress run",
+    "cy:runGhost": "cypress run --spec cypress/integration/ghost/**/*.js",
+    "cy:runGhostOld": "cypress run --spec cypress/integration/ghostOld/**/*.js",
     "cy:open": "cypress open",
     "cypress:open": "cypress open"
   },
@@ -13,6 +15,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^6.8.0"
+    "@faker-js/faker": "^7.6.0",
+    "cypress": "^6.8.0",
+    "playwright": "^1.28.0",
+    "resemblejs": "^4.1.0"
   }
 }

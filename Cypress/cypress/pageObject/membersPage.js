@@ -26,4 +26,8 @@ export class MemberPage {
     getMembersListSelector() {
         return 'table[class="gh-list"] > tbody > tr';
     }
+
+    getNoMembersArea() {
+        return cy.get('div.gh-members-empty');
+    }
 }

@@ -10,13 +10,27 @@ export class PostPage {
     getPublishPostButton() {
         return cy.get('button.gh-publish-trigger');
     }
+
+    getPublishPostButtonOld() {
+        return cy.get('div.gh-publishmenu-trigger');
+    }
+    
  
     getContinueButtonModal() {
         return cy.get('button.gh-btn-large');
     }
 
+    getContinueButtonModalOld() {
+        return cy.get('button.gh-publishmenu-button');
+    }
+
     getConfirmPublishButtonModal() {
         return cy.get('div[class="gh-publish-cta"] > button:first-of-type');
+    }
+
+
+    getConfirmPublishButtonModalOld() {
+        return cy.get('div.modal-footer > button:last-of-type');
     }
 
     getUpdatePostButton() {
