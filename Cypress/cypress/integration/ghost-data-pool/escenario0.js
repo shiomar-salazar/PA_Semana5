@@ -3,125 +3,148 @@ import { faker } from '@faker-js/faker';
 import { AdminPage } from "../../pageObject/adminPage";
 import { PublishedPostsPage } from "../../pageObject/publishedPostsPage";
 import { MemberPage } from "../../pageObject/membersPage";
+import { LoginPage } from '../../pageObject/loginPage';
 
 const adminPage = new AdminPage();
 const publishedPostsPage = new PublishedPostsPage();
 const memberPage = new MemberPage();
 const correoRepetido = faker.internet.exampleEmail();
+const logInPage = new LoginPage();
 
 const escenario0 = {
 
     'a_priori': {
         'datos_validos' : 
             {
-                username: 'nombre valido',
-                password: 'Descripcion valida'
+                username: Cypress.env("username"),
+                password: Cypress.env("password"),
+                error: false
             },
         'datos_formato_invalido' :
             {
                 username: 'nombre valido',
-                password: 'Descripcion valida'
+                password: 'Descripcion valida',
+                error: true
             },
         'datos_frontera_superior':
             {
                 username: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta)',
-                password: 'Descripcion valida'
+                password: 'Descripcion valida',
+                error: true
             },
         'datos_frontera_inferior':
             {
                 username: 'a',
-                password: 'Descripcion valida'
+                password: 'Descripcion valida',
+                error: true
             },
         'campos_vacios':
             {
-                username: '',
-                password: 'Descripcion valida'
+                username: '{backspace}',
+                password: 'Descripcion valida',
+                error: true
             },
         'datos_equivocados':
             {
                 username: '|||||',
-                password: 'Descripcion valida'
+                password: 'Descripcion valida',
+                error: true
             },
         'datos_repetidos': 
             {
                 username: 'correo@valido.com',
                 password: 'correo@valido.com',
+                error: true
             }
     },
 
     'aleatorio_dinámico': {
         'datos_validos' : 
             {
-                username: faker.name.firstName(),
-                password: 'Descripcion valida'
+                username: Cypress.env("username"),
+                password: Cypress.env("password"),
+                error: false
             },
         'datos_formato_invalido' :
             {
                 username: faker.name.firstName(),
-                password: faker.lorem.paragraph(5)
+                password: faker.lorem.paragraph(5),
+                error: true
             },
         'datos_frontera_superior':
             {
                 username: faker.lorem.paragraph(5),
-                password: 'Descripcion valida'
+                password: 'Descripcion valida',
+                error: true
             },
         'datos_frontera_inferior':
             {
                 username: faker.lorem.word({ strategy: 'shortest' }),
-                password: 'Descripcion valida'
+                password: 'Descripcion valida',
+                error: true
             },
         'campos_vacios':
             {
                 username: faker.name.firstName(),
-                password: 'Descripcion valida'
+                password: '{backspace}',
+                error: true
             },
         'datos_equivocados':
             {
                 username: faker.internet.domainName(),
-                password: 'Descripcion valida'
+                password: 'Descripcion valida',
+                error: true
             },
         'datos_repetidos': 
             {
                 username: 'correo@valido.com',
                 password: 'correo@valido.com',
+                error: true
             }
     },
 
     'aleatorio': {
         'datos_validos' : 
             {
-                username: faker.name.firstName(),
-                password: faker.lorem.paragraph(3)
+                username: Cypress.env("username"),
+                password: Cypress.env("password"),
+                error: false
             },
         'datos_formato_invalido' :
             {
                 username: faker.name.firstName(),
-                password: faker.lorem.paragraph(3)
+                password: faker.lorem.paragraph(3),
+                error: true
             },
         'datos_frontera_superior':
             {
                 username: faker.lorem.paragraph(7),
-                password: faker.lorem.paragraph(3)
+                password: faker.lorem.paragraph(3),
+                error: true
             },
         'datos_frontera_inferior':
             {
                 username: faker.lorem.word({ strategy: 'shortest' }),
-                password: faker.lorem.paragraph(3)
+                password: faker.lorem.paragraph(3),
+                error: true
             },
         'campos_vacios':
             {
                 username: faker.name.firstName(),
-                password: ''
+                password: '{backspace}',
+                error: true
             },
         'datos_equivocados':
             {
                 username: faker.internet.domainName(),
-                password: faker.lorem.paragraph(3)
+                password: faker.lorem.paragraph(3),
+                error: true
             },
         'datos_repetidos': 
             {
                 username: correoRepetido,
                 password: correoRepetido,
+                error: true
             }
     },
 }
@@ -144,6 +167,11 @@ for (let escenario in escenario0) {
                     cy.visit('http://localhost:2368/ghost')
                     cy.login(data.username, data.password);
                     cy.wait(1000);
+                    if(!data.error){
+                        logInPage.getLogInSuccess().should('exist');
+                    }else{
+                        logInPage.getErrorLogIn().should('exist');
+                    }
    
                 })
         }

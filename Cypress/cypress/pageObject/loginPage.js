@@ -15,4 +15,11 @@ export class LoginPage {
     getMembersButton() {
         return cy.get('a[href="#/members/"]:first-of-type');
     }
+
+    getErrorLogIn(){
+        return cy.get('p.main-error');
+    }
+    getLogInSuccess(){
+        return cy.get('header[class="gh-canvas-header-content"]');
+    }
 }
