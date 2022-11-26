@@ -18,33 +18,33 @@ const escenario1 = {
             },
         'datos_formato_invalido' :
             {
-                titulo: 'nombre valido',
-                descripcion: 'Descripcion valida'
+                titulo: 'nombre invalido',
+                descripcion: 'Descripcion invalida'
             },
         'datos_frontera_superior':
             {
                 titulo: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta)',
-                descripcion: 'Descripcion valida'
+                descripcion: 'Descripcion frontera_superior'
             },
         'datos_frontera_inferior':
             {
                 titulo: 'a',
-                descripcion: 'Descripcion valida'
+                descripcion: 'Descripcion frontera_inferior'
             },
         'campos_vacios':
             {
-                titulo: '',
-                descripcion: 'Descripcion valida'
+                titulo: " ",
+                descripcion: 'campos vacios'
             },
         'datos_equivocados':
             {
                 titulo: '|||||',
-                descripcion: 'Descripcion valida'
+                descripcion: 'Descripcion datos equivocados'
             },
         'datos_repetidos': 
             {
-                titulo: 'correo@valido.com',
-                descripcion: 'correo@valido.com',
+                titulo: 'correo@repetido.com',
+                descripcion: 'correo@repetido.com',
             }
     },
 
@@ -56,33 +56,33 @@ const escenario1 = {
             },
         'datos_formato_invalido' :
             {
-                titulo: faker.name.firstName(),
+                titulo: faker.datatype.json(),
                 descripcion: faker.lorem.paragraph(5)
             },
         'datos_frontera_superior':
             {
                 titulo: faker.lorem.paragraph(5),
-                descripcion: 'Descripcion valida'
+                descripcion: 'Descripcion frontera superior con 5 parrafos'
             },
         'datos_frontera_inferior':
             {
                 titulo: faker.lorem.word({ strategy: 'shortest' }),
-                descripcion: 'Descripcion valida'
+                descripcion: 'Descripcion minimo valor de frontera'
             },
         'campos_vacios':
             {
-                titulo: faker.name.firstName(),
-                descripcion: 'Descripcion valida'
+                titulo: " ",
+                descripcion: 'Campos vacios'
             },
         'datos_equivocados':
             {
-                titulo: faker.internet.domainName(),
-                descripcion: 'Descripcion valida'
+                titulo: faker.datatype.uuid(),
+                descripcion: 'Descripcion datos equivocados en un titulo'
             },
         'datos_repetidos': 
             {
-                titulo: 'correo@valido.com',
-                descripcion: 'correo@valido.com',
+                titulo: correoRepetido,
+                descripcion: correoRepetido
             }
     },
 
@@ -94,7 +94,7 @@ const escenario1 = {
             },
         'datos_formato_invalido' :
             {
-                titulo: faker.name.firstName(),
+                titulo: faker.datatype.json(),
                 descripcion: faker.lorem.paragraph(3)
             },
         'datos_frontera_superior':
@@ -109,12 +109,12 @@ const escenario1 = {
             },
         'campos_vacios':
             {
-                titulo: faker.name.firstName(),
-                descripcion: ''
+                titulo: " ",
+                descripcion: "campo vacios"
             },
         'datos_equivocados':
             {
-                titulo: faker.internet.domainName(),
+                titulo: faker.datatype.uuid(),
                 descripcion: faker.lorem.paragraph(3)
             },
         'datos_repetidos': 
@@ -143,14 +143,32 @@ for (let escenario in escenario1) {
 
                     let data = escenario1[escenario][datoGenerado];
 
-                    /* When I create a new Member */
+                    /* When I create a new Member 
                     adminPage.navigateToMembersPage();
                     cy.createMember("Pablo Pineres", "pablo@gmail.com", "Ingeniero industrial que coordina proyectos de innovacion");
                     adminPage.navigateToMembersPage();
                     cy.wait(1000)
                     cy.reload();
 
-                    /* And I expect to be able to see the Member */
+                    if (!data.error) {
+                        /*And I delete a existing member 
+                        adminPage.navigateToMembersPage();
+                        cy.deleteMember("Pablo Pineres");
+                        cy.wait(1000);
+                        /*And I delete a existing member 
+                        cy.wait(1000);
+                        adminPage.navigateToMembersPage();
+                        memberPage.getMembersList().should("not.exist");
+                        /* When I expect to not have any members or exceptions 
+                        cy.wait(1000);
+                        adminPage.navigateToMembersPage();
+                        memberPage.getMembersList().should("not.exist");
+                      } else {
+                        adminPage.navigateToMembersPage();
+                        memberPage.getNoMembersArea().should("exist");
+                      }
+
+                    /* And I expect to be able to see the Member 
                     adminPage.navigateToMembersPage();
                     cy.wait(1000);
                     membersPage.getAllMembersListNames().contains("Pablo Pineres").should("exist");
@@ -161,29 +179,40 @@ for (let escenario in escenario1) {
                     adminPage.getNewPostButton().click();
                     cy.wait(1000);
                     cy.createPost(data.titulo, data.descripcion);
-                    cy.wait(500);
+                    cy.wait(1000);
 
                     /* Then I expect to be able to see the post */
                     adminPage.navigateToPostsPage();
                     cy.wait(500);
                     adminPage.getPublishedPostsButton().click();
                     cy.wait(500);
-                    publishedPostsPage
-                    .getAllPostTitles()
-                    .contains(data.titulo)
-                    .should("exist");
-
-                    /* Clean Up */
+                    if (data.titulo===" ") {
+                        publishedPostsPage
+                        .getAllPostTitles()
+                        .contains("(Untitled)")
+                        .should("exist");
+                    }
+                    else 
+                    {
+                        publishedPostsPage
+                        .getAllPostTitles()
+                        .contains(data.titulo)
+                        .should("exist");
+                    }
+                    /* Clean Up 
                     cy.wait(1000)
                     adminPage.navigateToMembersPage();
                     cy.wait(500);
                     cy.deleteAllMembers();
                     cy.wait(1000);
-
+                    */
+                   
                     adminPage.navigateToPostsPage();
                     adminPage.getPublishedPostsButton().click();
                     cy.deleteAllPosts();
                     cy.wait(1000);
+
+                    
 
                 })
         }

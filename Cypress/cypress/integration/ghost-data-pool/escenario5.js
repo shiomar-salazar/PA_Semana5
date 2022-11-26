@@ -29,30 +29,30 @@ const escenario5 = {
         'datos_frontera_superior':
             {
                 titulo: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta)',
-                descripcion: 'Descripcion valida',
+                descripcion: 'Descripcion frontera superior',
                 nuevotitulo: 'Japón es una nación insular del océano Pacífico con densas ciudades, palacios imperiales, parques nacionales montañosos y miles de santuarios y templos. ',
-                nuevadescripcion: 'Descripcion valida'
+                nuevadescripcion: 'Descripcion excedida de frontera superior'
             },
         'datos_frontera_inferior':
             {
                 titulo: 'a',
-                descripcion: 'Descripcion valida',
+                descripcion: 'Descripcion frontera inferior',
                 nuevotitulo: '.',
-                nuevadescripcion: 'Descripcion valida'
+                nuevadescripcion: 'Descripcion minima de frontera inferior'
             },
         'campos_vacios':
             {
-                titulo:  "{backspace}",
-                descripcion: 'Descripcion valida',
-                nuevotitulo:  "{backspace}",
-                nuevadescripcion: 'Descripcion valida'
+                titulo:  " ",
+                descripcion: 'Descripcion campos vacios',
+                nuevotitulo:  " ",
+                nuevadescripcion: 'Descripcion editamos el post con campos vacios'
             },
         'datos_equivocados':
             {
                 titulo: '|||||',
-                descripcion: 'Descripcion valida',
+                descripcion: 'Descripcion datos equivocados',
                 nuevotitulo: '°°°°°°°°°°°°',
-                nuevadescripcion: '%%%%%%%%%%%%%%%%%%'
+                nuevadescripcion: '%%%%%%%%%%%%%%%% Editamos los datos equivocados %%%%%%%%%%%%%%%%%%'
             },
         'datos_repetidos': 
             {
@@ -73,17 +73,17 @@ const escenario5 = {
             },
         'datos_formato_invalido' :
             {
-                titulo: faker.name.firstName(),
+                titulo: faker.datatype.uuid(),
                 descripcion: faker.lorem.paragraph(5),
-                nuevotitulo: faker.name.firstName(),
+                nuevotitulo: faker.datatype.json(),
                 nuevadescripcion: faker.lorem.paragraph(10),
             },
         'datos_frontera_superior':
             {
                 titulo: faker.lorem.paragraph(5),
-                descripcion: 'Descripcion valida',
+                descripcion: 'Descripcion frontera superior aleatoria dinamica',
                 nuevotitulo: faker.lorem.paragraph(10),
-                nuevadescripcion: 'nueva Descripcion valida'
+                nuevadescripcion: 'nueva Descripcion frontera superior mas exigente'
             },
         'datos_frontera_inferior':
             {
@@ -94,24 +94,24 @@ const escenario5 = {
             },
         'campos_vacios':
             {
-                titulo: faker.name.firstName(),
-                descripcion:  "{backspace}",
-                nuevotitulo: faker.name.firstName(),
-                nuevadescripcion:  "{backspace}"
+                titulo: " ",
+                descripcion:  "campos vacios de titulo",
+                nuevotitulo: " ",
+                nuevadescripcion:  "nuevos campos vacios de otro titulo"
             },
         'datos_equivocados':
             {
-                titulo: faker.internet.domainName(),
-                descripcion: 'Descripcion valida',
-                nuevotitulo: faker.internet.domainName(),
-                nuevadescripcion: 'nueva Descripcion equivocada'
+                titulo: faker.datatype.uuid(),
+                descripcion: 'Descripcion datos equivocados',
+                nuevotitulo: faker.datatype.uuid(),
+                nuevadescripcion: 'nueva Descripcion datos re equivocados'
             },
         'datos_repetidos': 
             {
-                titulo: 'correo@valido.com',
-                descripcion: 'correo@valido.com',
-                nuevotitulo: 'nueva correo@valido.com',
-                nuevadescripcion: 'nueva correo@valido.com'
+                titulo: correoRepetido,
+                descripcion: correoRepetido,
+                nuevotitulo: correoRepetido,
+                nuevadescripcion: correoRepetido
             }
     },
 
@@ -125,9 +125,9 @@ const escenario5 = {
             },
         'datos_formato_invalido' :
             {
-                titulo: faker.name.firstName(),
+                titulo: faker.datatype.json(),
                 descripcion: faker.lorem.paragraph(3),
-                nuevotitulo: faker.name.firstName(),
+                nuevotitulo: faker.datatype.json(),
                 nuevadescripcion: faker.lorem.paragraph(3)
             },
         'datos_frontera_superior':
@@ -146,17 +146,17 @@ const escenario5 = {
             },
         'campos_vacios':
             {
-                titulo: faker.name.firstName(),
-                descripcion:  "{backspace}",
-                nuevotitulo: faker.lorem.word({ strategy: 'shortest' }),
-                nuevadescripcion:  "{backspace}"
+                titulo: " ",
+                descripcion:  "campos vacios de titulo",
+                nuevotitulo: " ",
+                nuevadescripcion:  "nuevos campos vacios de otro titulo"
             },
         'datos_equivocados':
             {
-                titulo: faker.internet.domainName(),
-                descripcion: faker.lorem.paragraph(3),
-                nuevotitulo: faker.internet.domainName(),
-                nuevadescripcion: faker.lorem.word({ strategy: 'shortest' })
+                titulo: faker.datatype.uuid(),
+                descripcion: faker.datatype.uuid(),
+                nuevotitulo: faker.datatype.uuid(),
+                nuevadescripcion: faker.datatype.uuid()
             },
         'datos_repetidos': 
             {
@@ -186,28 +186,38 @@ for (let escenario in escenario5) {
 
                     let data = escenario5[escenario][datoGenerado];
 
-                    /* And then I create a new Post */
-                    adminPage.navigateToMainPage();
-                    cy.wait(500);
+                    /* When I create a new Post */
+                    adminPage.navigateToPostsPage();
+                    cy.wait(1000);
                     adminPage.getNewPostButton().click();
                     cy.wait(1000);
-                    cy.createPost(data.titulo, data.descripcion);
+                    cy.createPost(data.nuevotitulo, data.nuevadescripcion);
                     cy.wait(500);
 
-                    /* Then I expect to be able to see the post */
-                    adminPage.navigateToPostsPage();
-                    cy.wait(500);
-                    adminPage.getPublishedPostsButton().click();
-                    cy.wait(500);
-                    publishedPostsPage
-                    .getAllPostTitles()
-                    .contains(data.titulo)
-                    .should("exist");
+
+                       /* Then I expect to be able to see the post */
+                       adminPage.navigateToPostsPage();
+                       cy.wait(500);
+                       adminPage.getPublishedPostsButton().click();
+                       cy.wait(500);
+                       if (data.nuevotitulo===" ") {
+                           publishedPostsPage
+                           .getAllPostTitles()
+                           .contains("(Untitled)")
+                           .should("exist");
+                       }
+                       else 
+                       {
+                           publishedPostsPage
+                           .getAllPostTitles()
+                           .contains(data.nuevotitulo)
+                           .should("exist");
+                       }
                     
                     /* Delete a Post */
                     adminPage.navigateToPostsPage();
                     adminPage.getPublishedPostsButton().click();
-                    cy.deletePost(data.titulo);
+                    cy.deletePost(data.nuevotitulo);
                     cy.wait(1000);
 
                     /* And then I create a new Post */
@@ -218,16 +228,25 @@ for (let escenario in escenario5) {
                     cy.createPost(data.titulo, data.descripcion);
                     cy.wait(500);
 
-                    /* Then I expect to be able to see the post */
-                    adminPage.navigateToPostsPage();
-                    cy.wait(500);
-                    adminPage.getPublishedPostsButton().click();
-                    cy.wait(500);
-                    publishedPostsPage
-                    .getAllPostTitles()
-                    .contains(data.titulo)
-                    .should("exist");
-
+                  
+                       /* Then I expect to be able to see the post */
+                       adminPage.navigateToPostsPage();
+                       cy.wait(500);
+                       adminPage.getPublishedPostsButton().click();
+                       cy.wait(500);
+                       if (data.titulo===" ") {
+                           publishedPostsPage
+                           .getAllPostTitles()
+                           .contains("(Untitled)")
+                           .should("exist");
+                       }
+                       else 
+                       {
+                           publishedPostsPage
+                           .getAllPostTitles()
+                           .contains(data.titulo)
+                           .should("exist");
+                       }
                     
                     /* And then I edit a Post */
                     adminPage.navigateToMainPage();
@@ -235,15 +254,25 @@ for (let escenario in escenario5) {
                     cy.editPost(data.titulo, data.nuevotitulo, data.nuevadescripcion);
                     cy.wait(500);
 
-                     /* Then I expect to be able to see the post edited*/
-                    adminPage.navigateToPostsPage();
-                    cy.wait(500);
-                    adminPage.getPublishedPostsButton().click();
-                    cy.wait(500);
-                    publishedPostsPage
-                        .getAllPostTitles()
-                        .contains(data.nuevotitulo)
-                        .should("exist");     
+                  
+                       /* Then I expect to be able to see the post edited */
+                       adminPage.navigateToPostsPage();
+                       cy.wait(500);
+                       adminPage.getPublishedPostsButton().click();
+                       cy.wait(500);
+                       if (data.nuevotitulo===" ") {
+                           publishedPostsPage
+                           .getAllPostTitles()
+                           .contains("(Untitled)")
+                           .should("exist");
+                       }
+                       else 
+                       {
+                           publishedPostsPage
+                           .getAllPostTitles()
+                           .contains(data.nuevotitulo)
+                           .should("exist");
+                       }
 
                     /* Clean Up */
                     adminPage.navigateToPostsPage();
