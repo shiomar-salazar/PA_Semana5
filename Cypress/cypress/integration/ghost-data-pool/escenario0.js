@@ -14,18 +14,18 @@ const escenario0 = {
     'a_priori': {
         'datos_validos' : 
             {
-                username: 'nombre valido',
-                password: 'Descripcion valida'
+                username: 'a.solerf@uniandes.edu.co',
+                password: 'Uniandes.123'
             },
         'datos_formato_invalido' :
             {
-                username: 'nombre valido',
-                password: 'Descripcion valida'
+                username: '$%%$##',
+                password: '$$%%%'
             },
         'datos_frontera_superior':
             {
                 username: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta)',
-                password: 'Descripcion valida'
+                password: '546456456rtyrtyrtyrtyrtytry564754yrtyrtyrt'
             },
         'datos_frontera_inferior':
             {
@@ -35,12 +35,12 @@ const escenario0 = {
         'campos_vacios':
             {
                 username: '',
-                password: 'Descripcion valida'
+                password: ''
             },
         'datos_equivocados':
             {
-                username: '|||||',
-                password: 'Descripcion valida'
+                username: '545435',
+                password: 'wretwerew'
             },
         'datos_repetidos': 
             {
@@ -129,7 +129,7 @@ const escenario0 = {
 /*  Despues de hacer Login exitoso, quiero Agregar un nuevo Miembro y despues Crear un nuevo Post
  y espero que todos los pasos se puedan ejecutar correctamente */
 
-for (let escenario in escenario0) {
+for (let escenario in escenario0) {  //  se lee elemnto a_priori,aleatorio_dinámico, aleatorio
         
         describe('Ghost tests ' + escenario, () => {
             beforeEach(() => {
@@ -137,11 +137,11 @@ for (let escenario in escenario0) {
            
             })
 
-            for (let datoGenerado in escenario0[escenario]) {
+            for (let datoGenerado in escenario0[escenario]) { // obtiene datos de a_priori {datos_validos,datos_formato_invalido, etc}
                 it('escenario 0.' + datoGenerado, () => {
 
                     let data = escenario0[escenario][datoGenerado];
-                    cy.visit('http://localhost:2368/ghost')
+                    cy.visit('http://localhost:2368/ghost');
                     cy.login(data.username, data.password);
                     cy.wait(1000);
    
