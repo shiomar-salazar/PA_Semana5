@@ -42,9 +42,9 @@ const escenario5 = {
             },
         'campos_vacios':
             {
-                titulo: '',
+                titulo:  "{backspace}",
                 descripcion: 'Descripcion valida',
-                nuevotitulo: '',
+                nuevotitulo:  "{backspace}",
                 nuevadescripcion: 'Descripcion valida'
             },
         'datos_equivocados':
@@ -76,32 +76,42 @@ const escenario5 = {
                 titulo: faker.name.firstName(),
                 descripcion: faker.lorem.paragraph(5),
                 nuevotitulo: faker.name.firstName(),
-                nuevadescripcion: 'nueva Descripcion valida'
+                nuevadescripcion: faker.lorem.paragraph(10),
             },
         'datos_frontera_superior':
             {
                 titulo: faker.lorem.paragraph(5),
-                descripcion: 'Descripcion valida'
+                descripcion: 'Descripcion valida',
+                nuevotitulo: faker.lorem.paragraph(10),
+                nuevadescripcion: 'nueva Descripcion valida'
             },
         'datos_frontera_inferior':
             {
                 titulo: faker.lorem.word({ strategy: 'shortest' }),
-                descripcion: 'Descripcion valida'
+                descripcion: 'A',
+                nuevotitulo: faker.lorem.word({ strategy: 'shortest' }),
+                nuevadescripcion: 'B'
             },
         'campos_vacios':
             {
                 titulo: faker.name.firstName(),
-                descripcion: 'Descripcion valida'
+                descripcion:  "{backspace}",
+                nuevotitulo: faker.name.firstName(),
+                nuevadescripcion:  "{backspace}"
             },
         'datos_equivocados':
             {
                 titulo: faker.internet.domainName(),
-                descripcion: 'Descripcion valida'
+                descripcion: 'Descripcion valida',
+                nuevotitulo: faker.internet.domainName(),
+                nuevadescripcion: 'nueva Descripcion equivocada'
             },
         'datos_repetidos': 
             {
                 titulo: 'correo@valido.com',
                 descripcion: 'correo@valido.com',
+                nuevotitulo: 'nueva correo@valido.com',
+                nuevadescripcion: 'nueva correo@valido.com'
             }
     },
 
@@ -109,37 +119,51 @@ const escenario5 = {
         'datos_validos' : 
             {
                 titulo: faker.name.firstName(),
-                descripcion: faker.lorem.paragraph(3)
+                descripcion: faker.lorem.paragraph(3),
+                nuevotitulo: faker.name.firstName(),
+                nuevadescripcion: faker.lorem.paragraph(3)
             },
         'datos_formato_invalido' :
             {
                 titulo: faker.name.firstName(),
-                descripcion: faker.lorem.paragraph(3)
+                descripcion: faker.lorem.paragraph(3),
+                nuevotitulo: faker.name.firstName(),
+                nuevadescripcion: faker.lorem.paragraph(3)
             },
         'datos_frontera_superior':
             {
                 titulo: faker.lorem.paragraph(7),
-                descripcion: faker.lorem.paragraph(3)
+                descripcion: faker.lorem.paragraph(3),
+                nuevotitulo: faker.lorem.paragraph(7),
+                nuevadescripcion: faker.lorem.paragraph(3)
             },
         'datos_frontera_inferior':
             {
                 titulo: faker.lorem.word({ strategy: 'shortest' }),
-                descripcion: faker.lorem.paragraph(3)
+                descripcion: faker.lorem.paragraph(3),
+                nuevotitulo: faker.lorem.word({ strategy: 'shortest' }),
+                nuevadescripcion: faker.lorem.paragraph(7)
             },
         'campos_vacios':
             {
                 titulo: faker.name.firstName(),
-                descripcion: ''
+                descripcion:  "{backspace}",
+                nuevotitulo: faker.lorem.word({ strategy: 'shortest' }),
+                nuevadescripcion:  "{backspace}"
             },
         'datos_equivocados':
             {
                 titulo: faker.internet.domainName(),
-                descripcion: faker.lorem.paragraph(3)
+                descripcion: faker.lorem.paragraph(3),
+                nuevotitulo: faker.internet.domainName(),
+                nuevadescripcion: faker.lorem.word({ strategy: 'shortest' })
             },
         'datos_repetidos': 
             {
                 titulo: correoRepetido,
                 descripcion: correoRepetido,
+                nuevotitulo: correoRepetido,
+                nuevadescripcion: correoRepetido
             }
     },
 }
