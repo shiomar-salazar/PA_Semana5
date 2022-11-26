@@ -8,6 +8,7 @@
     "cy:run": "cypress run",
     "cy:runGhost": "cypress run --spec cypress/integration/ghost/**/*.js",
     "cy:runGhostOld": "cypress run --spec cypress/integration/ghostOld/**/*.js",
+    "cy:runGhostData": "cypress run --spec cypress/integration/ghost-data-pool/**/*.js",
     "cy:open": "cypress open",
     "cypress:open": "cypress open"
   },
