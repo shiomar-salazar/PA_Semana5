@@ -100,10 +100,6 @@ Ruta con los reportes de VRT de los escenarios escogidos:
 
 Para las incidencias encontradas de Ghost: https://asolerf.atlassian.net/jira/software/projects/PAU/boards/1
 - https://asolerf.atlassian.net/browse/PAU-19
-- https://asolerf.atlassian.net/browse/PAU-20
-- https://asolerf.atlassian.net/browse/PAU-21
-- https://asolerf.atlassian.net/browse/PAU-22
-- https://asolerf.atlassian.net/browse/PAU-23
 
 | #  | Escenario Escogido | Funcionalidad a probar |
 |----|---------------------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -117,9 +113,9 @@ Para las incidencias encontradas de Ghost: https://asolerf.atlassian.net/jira/so
 Estrategias de Generacion de Datos:
 | Estrategias            | Cantidad de Excenarios | Herramienta |
 |------------------------|------------------------|-------------|
-| Pool de datos a-priori | 42                     | Mockaroo    |
-| Pool de datos (pseudo) aleatorio dinámico | 42  | FakerJS     |
-| Escenario aleatorio    | 42                     | FakerJS     |
+| Pool de datos a-priori | 40                     | Mockaroo    |
+| Pool de datos (pseudo) aleatorio dinámico | 40  | FakerJS     |
+| Escenario aleatorio    | 40                     | FakerJS     |
 
 Tipos de Datos Generados:
 | Tipos de Datos           | Cantidad de Excenarios por |
