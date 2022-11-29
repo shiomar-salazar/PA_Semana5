@@ -1,4 +1,4 @@
-> Este readme fue modificado de su version anterior para mejor acomodar los entregables finales. La informacion de los entregables semanales se puede encontrar en la seccion de Wiki
+> Este readme fue modificado de su version anterior para mejor acomodar los entregables finales. La informacion de los entregables semanales se puede encontrar en la seccion de Wiki o revisar el historial viejo del repositorio
 ## Pruebas Automatizadas Equipo #7
 > Las credenciales de acceso a Jira y Confluence fueron entregados mediante las descripcion del entregable en Coursera.
 
