@@ -9,22 +9,22 @@
 - Andres Soler (a.solerf@uniandes.edu.co)
 
 ### Documento Presentacion Final
-
+[Placeholder]()
 
 ### Enlace Video Presentacion Final
-
+[Placeholder]()
 
 ### Inventario de Pruebas Exploratorias
-https://asolerf.atlassian.net/wiki/spaces/PAE1/pages/327681/Inventario+de+Pruebas+Exploratorias
+- https://asolerf.atlassian.net/wiki/spaces/PAE1/pages/327681/Inventario+de+Pruebas+Exploratorias
 
 ### Sistema de Reporte de Incidencias
-https://asolerf.atlassian.net/jira/software/projects/PAU/boards/1
+- https://asolerf.atlassian.net/jira/software/projects/PAU/boards/1
 
 ### Listado de Funcionalidades
-https://asolerf.atlassian.net/wiki/spaces/PAE1/pages/33147/Listado+de+Funcionalidades
+- https://asolerf.atlassian.net/wiki/spaces/PAE1/pages/33147/Listado+de+Funcionalidades
 
 ### Enlace a entregas Semanales
-
+- https://github.com/shiomar-salazar/PA_Semana5/tree/main/docs
 
 ### Enlace a Wiki del Proyecto
-https://github.com/shiomar-salazar/PA_Semana5/wiki/Semana_5
+- https://github.com/shiomar-salazar/PA_Semana5/wiki/Semana_5
