@@ -27,4 +27,4 @@ node index.js https://github.com true
 ```
 
 ## For Result
-Chek the chromium folder
+Check the chromium folder
