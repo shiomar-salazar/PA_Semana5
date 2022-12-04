@@ -1,0 +1,10 @@
+{
+    "url": "http://localhost:2368/ghost/#/dashboard",
+    "headless": true,
+    "depthLevels": 1,
+    "inputValues": true,
+    "values": {"ember6": "rockwin17@gmail.com",
+        "ember8": "Proper2022"
+        },
+    "browsers": ["chromium", "webkit", "firefox"]
+}
