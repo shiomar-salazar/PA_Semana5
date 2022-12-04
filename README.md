@@ -9,10 +9,10 @@
 - Andres Soler (a.solerf@uniandes.edu.co)
 
 ### Documento Presentacion Final
-[Placeholder]()
+https://github.com/shiomar-salazar/PA_Semana5/blob/main/docs/Semana%208/EstrategiaFinal_Equipo7.pdf
 
 ### Enlace Video Presentacion Final
-[Placeholder]()
+https://youtu.be/Cb0AChV5yTk
 
 ### Inventario de Pruebas Exploratorias
 - https://asolerf.atlassian.net/wiki/spaces/PAE1/pages/327681/Inventario+de+Pruebas+Exploratorias
